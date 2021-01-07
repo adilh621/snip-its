@@ -59,7 +59,7 @@ function App() {
                   <Snipits {...userState} />
                </ProtectedRoute>
                <ProtectedRoute exact path='/snipits/:id' >
-                  <Comment {...userState} />
+                  {/* <Comment {...userState} /> */}
                </ProtectedRoute>
 					<Route component={NoMatch} />
 				</Switch>

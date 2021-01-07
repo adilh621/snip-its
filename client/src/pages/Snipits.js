@@ -31,13 +31,16 @@ function Snipits({ username }) {
    }, []);
    
 
+
 	// Loads all comments and sets them to comments
 	function loadSnipits() {
 		console.log("Here!")
+		console.log(API.getSnipits)
 		API.getSnipits()
 			.then((res) => {
+				console.log(res)
 				setSnipit(res.data);
-			console.log(res)})
+			})
 			.catch((err) => console.log(err));
 	}
 

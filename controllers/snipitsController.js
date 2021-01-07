@@ -5,7 +5,7 @@ module.exports = {
   findAll: function(req, res) {
     db.Snipit
       .find(req.query)
-      .sort({ date: -1 })
+      // .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -21,8 +21,8 @@ module.exports = {
      if(!req.user) return res.status(401).end('user isnt authenticated')
 
      db.Snipit
-      .create({...req.body, email: req.user.email})
-      .then(({_id}) => db.User.findOneAndUpdate({_id: req.user._id}, { $push: { comments: _id } }, { new: true }))
+      .create({...req.body, email: req.user.email, username: req.user.username ,title: req.user.title,category: req.user.category})
+      .then(({_id}) => db.User.findOneAndUpdate({_id: req.user._id}, { $push: { snipits: _id } }, { new: true }))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

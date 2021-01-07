@@ -5,44 +5,45 @@ const { mongoOptions } = require("./config")
 // This file empties the Books collection and inserts the books below
 
 
-mongoose.connect(process.env.ATLAS_URL || "mongodb://localhost/mern",
+mongoose.connect(process.env.ATLAS_URL || "mongodb://localhost/snipits",
    mongoOptions
 );
 
 const userSeed = 
    {
       username: "Skirkp18",
+      name:"sean",
       email: "Skirkp18@gmail.com",
       password: "1"
    }
 ;
-const commentsSeeds = [
+const snipitsSeeds = [
    {
       body: "🚀 initial seed",
-      username: "Admin"
-   },
-   {
-      body: "👾 another",
-      username: "Admin"
-   },
+      username: "Admin",
+      title:"firstsnipit",
+      category:"c",
+      date:"01/07/2021"
+   }
+   
 
 ];
 
 // remove all comments
-db.Comment.deleteMany({})
+db.Snipit.deleteMany({})
 // remove all users
   .then(() => db.User.deleteMany({}))
   // add user
   .then(() => db.User.create(userSeed))
   // add comments seeds
-  .then((user) => db.Comment.create(commentsSeeds[0])
+  .then((user) => db.Snipit.create(snipitsSeeds[0])
       // add comment ref to user
-      .then(({_id}) => db.User.findOneAndUpdate({_id: user._id}, { $push: { comments: _id } }, { new: true }))
+      .then(({_id}) => db.User.findOneAndUpdate({_id: user._id}, { $push: { snipits: _id } }, { new: true }))
   )
-  .then((user) => db.Comment.create(commentsSeeds[1])
-      // add comment ref to user
-      .then(({_id}) => db.User.findOneAndUpdate({_id: user._id}, { $push: { comments: _id } }, { new: true }))
-  )
+//   .then((user) => db.Snipit.create(snipitsSeeds[1])
+//       // add comment ref to user
+//       .then(({_id}) => db.User.findOneAndUpdate({_id: user._id}, { $push: { snipits: _id } }, { new: true }))
+//   )
   .then(() => {
     process.exit(0);
   })

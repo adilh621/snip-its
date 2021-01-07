@@ -29,6 +29,7 @@ class Signup extends Component {
     if (this.state.email && this.state.password) {
       userAPI.signup({
         username: this.state.username,
+        name:this.state.name,
         email: this.state.email,
         password: this.state.password,
         passwordConf: this.state.passwordConf,
