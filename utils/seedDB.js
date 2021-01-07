@@ -11,8 +11,8 @@ mongoose.connect(process.env.ATLAS_URL || "mongodb://localhost/mern",
 
 const userSeed = 
    {
-      username: "Admin",
-      email: "admin@contact.us",
+      username: "Skirkp18",
+      email: "Skirkp18@gmail.com",
       password: "1"
    }
 ;
