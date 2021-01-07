@@ -3,14 +3,15 @@ import React, { Component } from "react";
 import userAPI from "../utils/userAPI";
 import {  Redirect, Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { Input, FormBtn } from "../components/Form";
+import { Input, FormBtn } from "../components/createSnipit";
 
 class Signup extends Component {
   state = {
-    email: "1@1",
-    username: "one",
-    password: "1",
-    passwordConf: "1"
+    name: "John",
+    email: "Email",
+    username: "Username",
+    password: "Password",
+    passwordConf: "Password Confirm"
   };
 
   componentDidMount() {
@@ -50,6 +51,12 @@ class Signup extends Component {
           <Col size="12">
  
             <form>
+            <Input
+                value={this.state.name}
+                onChange={this.handleInputChange}
+                name="name"
+                placeholder="Name"
+              />
               <Input
                 value={this.state.username}
                 onChange={this.handleInputChange}
@@ -91,7 +98,7 @@ class Signup extends Component {
           
         </Row>
         {/* redirect on authenticated */}
-        {this.props.authenticated ? <Redirect to='/comments'/>: <div></div>}
+        {this.props.authenticated ? <Redirect to='/snipits'/>: <div></div>}
 
 
       </Container>

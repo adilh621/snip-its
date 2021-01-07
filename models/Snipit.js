@@ -2,12 +2,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const commentSchema = new Schema({
+const snipitSchema = new Schema({
 	username: { type: String, required: true },
+	title: { type: String, required: true },
 	body: { type: String, required: true },
+	category: { type: String, required: true },
 	date: { type: Date, default: Date.now },
 });
 
-const Comment = mongoose.model("Comment", commentSchema);
+const Snipit = mongoose.model("Snipit", snipitSchema);
 
-module.exports = Comment;
+module.exports = Snipit;

@@ -17,10 +17,15 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  comments: [
+  name: {
+    required: true,
+    type: String,
+    trim: true
+  },
+  snipits: [
    {
      type: mongoose.Types.ObjectId,
-     ref: "Comment"
+     ref: "Snipit"
    }
  ]
   // ..anything else you want on your user

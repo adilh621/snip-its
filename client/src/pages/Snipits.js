@@ -4,11 +4,11 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
-import { ForwardRefInput, FormBtn } from "../components/Form";
+import { ForwardRefInput, FormBtn } from "../components/createSnipit";
 
-function Comments({ username }) {
+function Snipits({ username }) {
 	// Setting our component's initial state
-	const [comments, setComments] = useState([]);
+	const [snipits, setSnipit] = useState([]);
 	const [formObject, setFormObject] = useState({
       body: "",
       username: ""
@@ -22,27 +22,29 @@ function Comments({ username }) {
       // set user after successful component mount
       setFormObject({
          body: "",
-         username: "", 
-         username})
+         username: ""})
 
-      loadComments();
+      loadSnipits();
 
       // focus on titleInputEl if ref exists
       titleInputElRef.current.focus()
-   }, [username]);
+   }, []);
    
 
 	// Loads all comments and sets them to comments
-	function loadComments() {
-		API.getComments()
-			.then((res) => setComments(res.data))
+	function loadSnipits() {
+		console.log("Here!")
+		API.getSnipits()
+			.then((res) => {
+				setSnipit(res.data);
+			console.log(res)})
 			.catch((err) => console.log(err));
 	}
 
 	// Deletes a comment from the database with a given id, then reloads comments from the db
-	function deleteComment(id) {
-		API.deleteComment(id)
-			.then((res) => loadComments())
+	function deleteSnipit(id) {
+		API.deleteSnipit(id)
+			.then((res) => loadSnipits())
 			.catch((err) => console.log(err));
 	}
 
@@ -57,14 +59,18 @@ function Comments({ username }) {
 	function handleFormSubmit(event) {
 		event.preventDefault();
 		if (formObject.body) {
-			API.saveComment({
+			API.saveSnipit({
 				body: formObject.body,
 				username: formObject.username,
+				category: formObject.category,
+				title: formObject.title
 			})
-            .then(loadComments)
+            .then(loadSnipits)
             .then(() => setFormObject({
                body: "",
-               username: ""
+			   username: "",
+			   category: "",
+			   title: "",
             }))
 				.catch((err) => console.log(err));
 		}
@@ -77,30 +83,33 @@ function Comments({ username }) {
 					<Col size='sm-12'>
 						<ForwardRefInput ref={ titleInputElRef } value={formObject.body} onChange={handleInputChange} name='body' placeholder='your comment here' />
 					</Col>
+					<Col size='sm-12'>
+						<ForwardRefInput ref={ titleInputElRef } value={formObject.title} onChange={handleInputChange} name='title' placeholder='your snipit title' />
+					</Col>
 					<FormBtn
 						disabled={!formObject.body}
 						onClick={handleFormSubmit}>
-						Submit Comment
+						Submit Snipit
 					</FormBtn>
 				</form>
 			</Col>
 		</Row>,
 		<Row>
 			<Col size='md-12'>
-				{comments.length ? (
+				{snipits.length ? (
 					<Table>
-						{comments.map(comment => (
-							<Tr key={comment._id}>
+						{snipits.map(snipit => (
+							<Tr key={snipit._id}>
 								<Td>
 									<Link
-										to={"/comments/" + comment._id}
+										to={"/snipits/" + snipit._id}
 										style={{ textAlign: "left", display: "block" }}>
-										<strong>{comment.username}:</strong> {comment.body}
+										<strong>{snipit.username}:</strong> {snipit.body}
 									</Link>
 								</Td>
-								<Td>{comment.date}</Td>
+								<Td>{snipit.date}</Td>
 								<Td>
-									<DeleteBtn onClick={() => deleteComment(comment._id)} />
+									<DeleteBtn onClick={() => deleteSnipit(snipit._id)} />
 								</Td>
 							</Tr>
 						))}
@@ -113,4 +122,4 @@ function Comments({ username }) {
 	</>;
 }
 
-export default Comments;
+export default Snipits;

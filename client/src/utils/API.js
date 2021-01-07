@@ -2,19 +2,19 @@ import axios from "axios";
 
 export default {
   // Gets all comments
-  getComments: function() {
-    return axios.get("/api/comments");
+  getSnipits: function() {
+    return axios.get("/api/snipits");
   },
   // Gets the comment with the given id
-  getComment: function(id) {
-    return axios.get("/api/comments/" + id);
+  getSnipit: function(id) {
+    return axios.get("/api/snipits/" + id);
   },
   // Deletes the comment with the given id
-  deleteComment: function(id) {
-    return axios.delete("/api/comments/" + id);
+  deleteSnipit: function(id) {
+    return axios.delete("/api/snipits/" + id);
   },
   // Saves a comment to the database
-  saveComment: function(commentData) {
-    return axios.post("/api/comments", commentData);
+  saveSnipit: function(snipitData) {
+    return axios.post("/api/snipits", snipitData);
   }
 };

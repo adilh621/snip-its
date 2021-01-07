@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import Comments from "./pages/Comments";
+import Snipits from "./pages/Snipits";
 import { Container } from "./components/Grid";
 import Comment from "./pages/Comment";
 import Login from "./pages/Login";
@@ -55,16 +55,16 @@ function App() {
 							/>
 						)}
 					/>
-               <ProtectedRoute exact path={["/", "/comments"]}>
-                  <Comments {...userState} />
+               <ProtectedRoute exact path={["/", "/snipits"]}>
+                  <Snipits {...userState} />
                </ProtectedRoute>
-               <ProtectedRoute exact path='/comments/:id' >
+               <ProtectedRoute exact path='/snipits/:id' >
                   <Comment {...userState} />
                </ProtectedRoute>
 					<Route component={NoMatch} />
 				</Switch>
 			</Container>
-         { userState.email ? <Redirect to="/comments" /> : <></>}
+         { userState.email ? <Redirect to="/snipits" /> : <></>}
 		</Router>
 	);
 }

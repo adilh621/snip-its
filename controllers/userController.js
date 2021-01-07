@@ -9,7 +9,7 @@ module.exports = {
          _id: req.user._id,
          username: req.user.username,
          email: req.user.email,
-         comments: req.user.comments
+         snipits: req.user.snipits
       });
    },
 
@@ -19,6 +19,7 @@ module.exports = {
    signup: function (req, res) {
 		db.User.create({
          username: req.body.username,
+         name: req.body.name,
 			email: req.body.email,
 			password: req.body.password
 		})
@@ -42,7 +43,7 @@ module.exports = {
                _id: req.user._id,
                username: req.user.username,
                email: req.user.email,
-               comments: req.user.comments
+               snipit: req.user.snipits
          })
    }
 }
