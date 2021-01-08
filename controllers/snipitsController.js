@@ -3,9 +3,10 @@ const db = require("../models");
 // Defining methods for the commentsController
 module.exports = {
   findAll: function(req, res) {
+    console.log("Here In The Controller!");
     db.Snipit
       .find(req.query)
-      // .sort({ date: -1 })
+      .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

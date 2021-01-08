@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const snipitRoutes = require("./snipits");
+const snipitsRoutes = require("./snipits");
 const userRoutes = require("./user");
 
 // comments routes
-router.use("/comments", snipitRoutes);
+router.use("/snipits", snipitsRoutes);
 // user routes
 router.use("/user", userRoutes);
 

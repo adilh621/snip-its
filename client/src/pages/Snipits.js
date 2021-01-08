@@ -8,10 +8,12 @@ import { ForwardRefInput, FormBtn } from "../components/createSnipit";
 
 function Snipits({ username }) {
 	// Setting our component's initial state
-	const [snipits, setSnipit] = useState([]);
+	const [snipits, setSnipits] = useState([]);
 	const [formObject, setFormObject] = useState({
       body: "",
-      username: ""
+	  username: "",
+	  title: "",
+	  category: ""
    });
    
    // get input element ref for focus
@@ -22,7 +24,9 @@ function Snipits({ username }) {
       // set user after successful component mount
       setFormObject({
          body: "",
-         username: ""})
+		 username: "",
+		 title: "",
+		 category: ""})
 
       loadSnipits();
 
@@ -35,11 +39,11 @@ function Snipits({ username }) {
 	// Loads all comments and sets them to comments
 	function loadSnipits() {
 		console.log("Here!")
-		console.log(API.getSnipits)
+		// console.log(API.getSnipits)
 		API.getSnipits()
 			.then((res) => {
 				console.log(res)
-				setSnipit(res.data);
+				setSnipits(res.data);
 			})
 			.catch((err) => console.log(err));
 	}
@@ -62,6 +66,7 @@ function Snipits({ username }) {
 	function handleFormSubmit(event) {
 		event.preventDefault();
 		if (formObject.body) {
+			console.log(formObject);
 			API.saveSnipit({
 				body: formObject.body,
 				username: formObject.username,
@@ -84,10 +89,10 @@ function Snipits({ username }) {
 			<Col size='md-12'>
 				<form>
 					<Col size='sm-12'>
-						<ForwardRefInput ref={ titleInputElRef } value={formObject.body} onChange={handleInputChange} name='body' placeholder='your comment here' />
+						<ForwardRefInput ref={ titleInputElRef } value={formObject.title} onChange={handleInputChange} name='title' placeholder='your snipit title' />
 					</Col>
 					<Col size='sm-12'>
-						<ForwardRefInput ref={ titleInputElRef } value={formObject.title} onChange={handleInputChange} name='title' placeholder='your snipit title' />
+						<ForwardRefInput ref={ titleInputElRef } value={formObject.body} onChange={handleInputChange} name='body' placeholder='your snipit here' />
 					</Col>
 					<FormBtn
 						disabled={!formObject.body}
