@@ -94,6 +94,12 @@ function Snipits({ username }) {
 					<Col size='sm-12'>
 						<ForwardRefInput ref={ titleInputElRef } value={formObject.body} onChange={handleInputChange} name='body' placeholder='your snipit here' />
 					</Col>
+					<Col size='sm-12'>
+						<ForwardRefInput ref={ titleInputElRef } value={formObject.username} onChange={handleInputChange} name='username' placeholder='Enter Your Username' />
+					</Col>
+					<Col size='sm-12'>
+						<ForwardRefInput ref={ titleInputElRef } value={formObject.category} onChange={handleInputChange} name='category' placeholder='Category of snipit' />
+					</Col>
 					<FormBtn
 						disabled={!formObject.body}
 						onClick={handleFormSubmit}>
