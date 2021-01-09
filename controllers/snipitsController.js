@@ -20,9 +20,9 @@ module.exports = {
   create: function(req, res) {
      // if no user on the session
      if(!req.user) return res.status(401).end('user isnt authenticated')
-
+    
      db.Snipit
-      .create({...req.body, email: req.user.email, username: req.user.username ,title: req.user.title,category: req.user.category})
+      .create({...req.body, email: req.user.email})
       .then(({_id}) => db.User.findOneAndUpdate({_id: req.user._id}, { $push: { snipits: _id } }, { new: true }))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

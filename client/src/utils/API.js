@@ -15,6 +15,7 @@ export default {
   },
   // Saves a comment to the database
   saveSnipit: function(snipitData) {
+    console.log("created snipit")
     return axios.post("/api/snipits", snipitData);
   }
 };
