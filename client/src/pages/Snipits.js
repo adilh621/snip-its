@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
+import Snipit from "../components/Snipit"
 import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
@@ -112,21 +113,30 @@ function Snipits({ username }) {
 			<Col size='md-12'>
 				{snipits.length ? (
 					<Table>
-						{snipits.map(snipit => (
-							<Tr key={snipit._id}>
-								<Td>
-									<Link
-										to={"/snipits/" + snipit._id}
-										style={{ textAlign: "left", display: "block" }}>
-										<strong>{snipit.username}:</strong> {snipit.body}
-									</Link>
-								</Td>
-								<Td>{snipit.date}</Td>
-								<Td>
-									<DeleteBtn onClick={() => deleteSnipit(snipit._id)} />
-								</Td>
-							</Tr>
-						))}
+						{snipits.map(snipit => {
+							console.log(snipit);
+							const title = snipit.title;
+							const body = snipit.body;
+							const username = snipit.username;
+							const category = snipit.category;
+							return (
+							// <Tr key={snipit._id}>
+							// 	<Td>
+							// 		<Link
+							// 			to={"/snipits/" + snipit._id}
+							// 			style={{ textAlign: "left", display: "block" }}>
+							// 			<strong>{snipit.username}:</strong> {snipit.body}
+							// 		</Link>
+							// 	</Td>
+							// 	<Td>{snipit.date}</Td>
+							// 	<Td>
+							// 		<DeleteBtn onClick={() => deleteSnipit(snipit._id)} />
+							// 	</Td>
+							// </Tr>
+							
+							<Snipit title={title} body={body} username={username} category={category} />
+						)}
+						)}
 					</Table>
 				) : (
 					<h3>No Results to Display</h3>
