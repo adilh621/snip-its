@@ -111,6 +111,7 @@ function Snipits({ username }) {
 			<Col size='md-12'>
 				{snipits.length ? (
 					<Table>
+						<Row>
 						{snipits.map(snipit => {
 							console.log(snipit);
 							const id = snipit._id;
@@ -119,23 +120,10 @@ function Snipits({ username }) {
 							const username = snipit.username;
 							const category = snipit.category;
 							return (
-							// <Tr key={snipit._id}>
-							// 	<Td>
-							// 		<Link
-							// 			to={"/snipits/" + snipit._id}
-							// 			style={{ textAlign: "left", display: "block" }}>
-							// 			<strong>{snipit.username}:</strong> {snipit.body}
-							// 		</Link>
-							// 	</Td>
-							// 	<Td>{snipit.date}</Td>
-							// 	<Td>
-							// 		<DeleteBtn onClick={() => deleteSnipit(snipit._id)} />
-							// 	</Td>
-							// </Tr>
-							
 							<SnipitView key={id} title={title} body={body} username={username} category={category} />
 						)}
 						)}
+						</Row>
 					</Table>
 				) : (
 					<h3>No Results to Display</h3>
