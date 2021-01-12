@@ -1,8 +1,9 @@
 .snipitText {
-    color: black;
+    color: red;
 }
 
 .snipitCard {
     width: 300px;
     margin: 30px;
+    background-color: yellow;
 }
