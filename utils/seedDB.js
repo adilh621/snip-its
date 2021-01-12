@@ -19,7 +19,7 @@ const userSeed =
 ;
 const snipitsSeeds = [
    {
-      body: "🚀 initial seed",
+      body: "<h1>Hello World!</h1>",
       username: "Admin",
       title:"firstsnipit",
       category:"c",

@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
-import Snipit from "../components/Snipit"
+import SnipitView from "../components/Snipit"
 import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import { ForwardRefInput, FormBtn } from "../components/createSnipit";
 
 function Snipits({ username }) {
+	const currentUser = username;
+	console.log(currentUser);
 	// Setting our component's initial state
 	const [snipits, setSnipits] = useState([]);
 	const [formObject, setFormObject] = useState({
@@ -70,14 +72,13 @@ function Snipits({ username }) {
 			console.log(formObject);
 			API.saveSnipit({
 				body: formObject.body,
-				username: formObject.username,
 				category: formObject.category,
-				title: formObject.title
+				title: formObject.title,
+				username: currentUser
 			})
             .then(loadSnipits)
             .then(() => setFormObject({
                body: "",
-			   username: "",
 			   category: "",
 			   title: "",
             }))
@@ -96,9 +97,6 @@ function Snipits({ username }) {
 						<ForwardRefInput ref={ titleInputElRef } value={formObject.body} onChange={handleInputChange} name='body' placeholder='your snipit here' />
 					</Col>
 					<Col size='sm-12'>
-						<ForwardRefInput ref={ titleInputElRef } value={formObject.username} onChange={handleInputChange} name='username' placeholder='Enter Your Username' />
-					</Col>
-					<Col size='sm-12'>
 						<ForwardRefInput ref={ titleInputElRef } value={formObject.category} onChange={handleInputChange} name='category' placeholder='Category of snipit' />
 					</Col>
 					<FormBtn
@@ -115,6 +113,7 @@ function Snipits({ username }) {
 					<Table>
 						{snipits.map(snipit => {
 							console.log(snipit);
+							const id = snipit._id;
 							const title = snipit.title;
 							const body = snipit.body;
 							const username = snipit.username;
@@ -134,7 +133,7 @@ function Snipits({ username }) {
 							// 	</Td>
 							// </Tr>
 							
-							<Snipit title={title} body={body} username={username} category={category} />
+							<SnipitView key={id} title={title} body={body} username={username} category={category} />
 						)}
 						)}
 					</Table>
