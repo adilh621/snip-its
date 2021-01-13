@@ -1,9 +1,22 @@
 .snipitText {
-    color: red;
+    text-shadow: 10 10 .5 white !important;
+    color: white;
 }
 
 .snipitCard {
     width: 300px;
     margin: 30px;
-    background-color: yellow;
+    background-color:white !important;
+    color: white;
+}
+
+body{ 
+    background-color: rgb(78, 75, 75) !important;
+    
+}
+h1{ 
+    text-align: center !important;
+    
+    
+    
 }

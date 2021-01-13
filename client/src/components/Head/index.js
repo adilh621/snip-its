@@ -1,14 +1,24 @@
 import React from "react";
 import useLogRender from "../../utils/useLogPath";
 
-function Nav() {
-	useLogRender();
-
-	return (
-		<nav>
-			<h1 className='mt-0 ml-0 mb-3 text-dark p-4 pt-3 pl-3'>Snipits Code Sharing App!</h1>
-		</nav>
-	);
+// useLogRender();
+class Nav extends React.Component {
+	  
+	
+	
+	render(){
+		const userState = Object.keys(this.props.userstate).length
+		console.log(userState);
+		return (
+			<nav>
+				
+				<img src="../images/snip.jpg" alt="logo" style={{height:"200px", width:"200px", marginTop:"-50px"}}></img> 
+				{userState === 0 ? <h1>Log In</h1>:<h1>Log Out</h1>}
+				
+			</nav> 
+		);
+	}
+	
 }
 
 export default Nav;

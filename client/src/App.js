@@ -30,7 +30,7 @@ function App() {
 
 	return (
 		<Router>
-			<Head />
+			<Head userstate={userState}/>
 			<Container>
 				<Switch>
 					<Route
