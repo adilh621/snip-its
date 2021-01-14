@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-
+import React, { Component, useHistory } from "react";
 import userAPI from "../utils/userAPI";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -11,9 +10,11 @@ class Login extends Component {
       password: ""
     };
     
+    
   componentDidMount() {
  
   }
+  
   
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -24,6 +25,7 @@ class Login extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    const { history } = this.props;
     if (this.state.email && this.state.password) {
       userAPI.loginUser({
         email: this.state.email,
@@ -32,6 +34,7 @@ class Login extends Component {
         .then(res => {
           if(res.status === 200 ){
              this.props.setUserState(res.data)
+             history.push("/snipits");
           }
         })
         .catch(err => console.log(err));
