@@ -23,7 +23,7 @@ class Snipitview extends React.Component {
         value={body}
         highlight={body => highlight(body, languages.js)}
         padding={10}
-        style={{fontFamily: '"Fira code", "Fira Mono", monospace', fontSize: 12}} 
+        style={{fontFamily: '"Fira code", "Fira Mono", monospace', fontSize: 12,}} 
         />
         <Row>
             <Col size={"md-6"}>
