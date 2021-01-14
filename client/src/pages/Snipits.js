@@ -52,13 +52,6 @@ function Snipits({ username }) {
 			.catch((err) => console.log(err));
 	}
 
-	// Deletes a comment from the database with a given id, then reloads comments from the db
-	function deleteSnipit(id) {
-		API.deleteSnipit(id)
-			.then((res) => loadSnipits())
-			.catch((err) => console.log(err));
-	}
-
 	// Handles updating component state when the user types into the input field
 	function handleInputChange(event) {
 		const { name, value } = event.target;
