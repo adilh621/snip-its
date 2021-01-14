@@ -7,11 +7,11 @@ import { Input, FormBtn } from "../components/createSnipit";
 
 class Signup extends Component {
   state = {
-    name: "John",
-    email: "Email",
-    username: "Username",
-    password: "Password",
-    passwordConf: "Password Confirm"
+    name: "",
+    email: "",
+    username: "",
+    password: "",
+    passwordConf: ""
   };
 
   componentDidMount() {
@@ -25,6 +25,7 @@ class Signup extends Component {
   };
 
   handleFormSubmit = event => {
+    const { history } = this.props;
     event.preventDefault();
     if (this.state.email && this.state.password) {
       userAPI.signup({
@@ -38,7 +39,7 @@ class Signup extends Component {
         .then(res => {
           if(res.status === 200 ){
             this.props.authenticate();
-            return <Redirect to="/comments" />
+            history.push("/snipits");
           }
         })
         .catch(err => console.log(err.response.data));
@@ -74,14 +75,14 @@ class Signup extends Component {
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
-                placeholder="(required)"
+                placeholder="(Passoword)"
                 type="password"
               />
               <Input
                 value={this.state.passwordConf}
                 onChange={this.handleInputChange}
                 name="passwordConf"
-                placeholder="(required)"
+                placeholder="(Confirm Password)"
                 type="password"
               />
               
