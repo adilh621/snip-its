@@ -5,6 +5,7 @@ import SnipitView from "../components/Snipit"
 import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
+import Button from 'react-bootstrap/Button';
 import { ForwardRefInput, FormBtn } from "../components/createSnipit";
 
 function Snipits({ username }) {
@@ -88,6 +89,9 @@ function Snipits({ username }) {
 
 	return <>
 		<Row>
+			<Col size="md-4">
+				<a><Link to={"/dashboard"}>Dashboard!</Link></a>
+			</Col>
 			<Col size='md-12'>
 				<form>
 					<Col size='sm-12'>
@@ -106,7 +110,7 @@ function Snipits({ username }) {
 					</FormBtn>
 				</form>
 			</Col>
-		</Row>,
+		</Row>
 		<Row>
 			<Col size='md-12'>
 				{snipits.length ? (

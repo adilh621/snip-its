@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Snipits from "./pages/Snipits";
 import { Container } from "./components/Grid";
-import Comment from "./pages/Comment";
+import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
@@ -13,9 +13,14 @@ import ProtectedRoute from "./components/ProtectedRoute"
 function App() {
 	const [userState, setUserState] = useState({});
 
+	function Redirect() {
+		window.location.href = "/snipits"
+	}
+
    useEffect(() => { 
 	   // auth user on first render
-      authenticate() 
+	  authenticate() 
+	  
    }, []);
 
 	//user authentication
@@ -23,7 +28,7 @@ function App() {
 		return userAPI.authenticateUser()
 			.then(({ data }) => {
 				console.log('user:', data );
-            setUserState(data);
+			setUserState(data);
 			})
 			.catch((err) => console.log('registered user:', err.response));
 	}
@@ -55,16 +60,18 @@ function App() {
 							/>
 						)}
 					/>
-               <ProtectedRoute exact path={["/", "/snipits"]}>
+               <ProtectedRoute exact path={["/", "/snipits"]} type="private">
                   <Snipits {...userState} />
                </ProtectedRoute>
-               <ProtectedRoute exact path='/snipits/:id' >
-                  {/* <Comment {...userState} /> */}
+               <ProtectedRoute exact path={["/", "/dashboard"]} type="private">
+                  <Dashboard {...userState} />
                </ProtectedRoute>
 					<Route component={NoMatch} />
 				</Switch>
 			</Container>
-         { userState.email ? <Redirect to="/snipits" /> : <></>}
+			{/* { userState.email && window.location.pathname == "/snipits" ? <Snipits /> : <></>} */}
+			{/* { userState.email && window.location.pathname == "/dashboard" ? <Dashboard /> : <></>} */}
+
 		</Router>
 	);
 }
