@@ -3,8 +3,11 @@
 }
 
 .snipitCard {
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 200px;
     width: 300px;
-    margin: 30px;
     background-color: white;
 
 }
