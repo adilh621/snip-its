@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, NavLink, Redirect, Route, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import { Col, Row } from "../Grid";
 import { ForwardRefInput, FormBtn } from "../createSnipit";
-import Dashboard from "../../pages/Dashboard";
+import Card from 'react-bootstrap/Card';
+
 
 
 function SnipitInputCard(props) {
@@ -75,6 +76,7 @@ function SnipitInputCard(props) {
 	}
     
     return( <Col size='md-12'>
+            <Card>
             <form>
                 <Col size='sm-12'>
                     <ForwardRefInput ref={ titleInputElRef } value={formObject.title} onChange={handleInputChange} name='title' placeholder='Your Snip-it Title' />
@@ -91,6 +93,7 @@ function SnipitInputCard(props) {
                     Submit Snipit
                 </FormBtn>
             </form>
+            </Card>
         </Col>);
 };
 
