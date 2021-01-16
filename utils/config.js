@@ -12,7 +12,7 @@ module.exports = {
 		saveUninitialized: true,
 		cookie: {
 			expires: 1000 * 60 * 60 * 24,
-		},
+		}
 	},
 	// additional global configs
 };
