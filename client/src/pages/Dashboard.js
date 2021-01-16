@@ -14,7 +14,7 @@ function Dashboard(props) {
 	// console.log(props);
 
 	const [snipits, setSnipits] = useState([]);
-	const [route, setRoute] = useState("/dashboard")
+	
 
 
 
