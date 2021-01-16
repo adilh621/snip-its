@@ -36,7 +36,7 @@ function App() {
 	return (
 		<Router>
 			<Head />
-			<Container>
+			<Container fluid>
 				<Switch>
 					<Route
 						exact

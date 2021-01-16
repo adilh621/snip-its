@@ -1,0 +1,14 @@
+#yourSnipitsCard {
+    margin: auto;
+    width: 95%;
+}
+
+#yourSnipitsTitle {
+    margin-left: -600px;
+    font-weight: bolder;
+}
+
+#createSnipitBtn {
+    margin-top: 10px;
+    margin-left: 100px;
+}
