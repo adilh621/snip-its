@@ -7,8 +7,10 @@ import Button from 'react-bootstrap/Button';
 import "./style.css"
 
 function YourSnipitsCard(props) {
-    const filteredSnipits = props.filteredSnipits
-    const snipits = props.snipits
+    const filteredSnipits = props.filteredSnipits;
+    const snipits = props.snipits;
+    const deleteSnipit = props.deleteSnipit;
+    console.log(deleteSnipit)
     
     return (<Card id="yourSnipitsCard">
         <Card.Header style={{ textAlign: "center" }}>
@@ -32,8 +34,10 @@ function YourSnipitsCard(props) {
                             const body = snipit.body;
                             const username = snipit.username;
                             const category = snipit.category;
-                            return (
+                            return ( <Col size="md-4">
                                 <SnipitView key={id} title={title} body={body} username={username} category={category} />
+                                <Button id="deleteSnipitBtn" onClick={console.log("click")}>Delete Snipit</Button>
+                                </Col>
                             )
                         }
                         )}

@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import API from "../utils/API";
 import YourSnipitsCard from "../components/YourSnipitsCard";
+import { MongooseDocument } from "mongoose";
 
 function Dashboard(props) {
 
@@ -53,7 +54,7 @@ function Dashboard(props) {
 				</div>
 			</Col>
 			<Col size="md-9">
-		<YourSnipitsCard filteredSnipits={filteredSnipits} snipits={snipits} />
+			<YourSnipitsCard filteredSnipits={filteredSnipits} snipits={snipits} deleteSnipit={deleteSnipit} />
 			</Col>
 		</Row>
 	</Container>);
