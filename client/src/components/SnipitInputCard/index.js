@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import { Col, Row } from "../Grid";
 import { ForwardRefInput, FormBtn } from "../createSnipit";
 import Card from 'react-bootstrap/Card';
+import "./style.css";
 
 
 
@@ -76,7 +77,8 @@ function SnipitInputCard(props) {
 	}
     
     return( <Col size='md-12'>
-            <Card>
+            <Card id="snipitInputCard">
+                <Card.Header><h1>Create Your Snipit:</h1></Card.Header>
             <form>
                 <Col size='sm-12'>
                     <ForwardRefInput ref={ titleInputElRef } value={formObject.title} onChange={handleInputChange} name='title' placeholder='Your Snip-it Title' />
