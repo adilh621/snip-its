@@ -27,7 +27,7 @@ function App() {
 	function authenticate() {
 		return userAPI.authenticateUser()
 			.then(({ data }) => {
-				console.log('user:', data );
+			console.log('user:', data );
 			setUserState(data);
 			})
 			.catch((err) => console.log('registered user:', err.response));
@@ -63,15 +63,13 @@ function App() {
                <ProtectedRoute exact path={["/", "/snipits"]} type="private">
                   <Snipits {...userState} />
                </ProtectedRoute>
-               <ProtectedRoute exact path={["/", "/dashboard"]} type="private">
+               <ProtectedRoute path={["/", "/dashboard"]} type="private">
                   <Dashboard {...userState} />
                </ProtectedRoute>
 					<Route component={NoMatch} />
 				</Switch>
 			</Container>
-			{/* { userState.email && window.location.pathname == "/snipits" ? <Snipits /> : <></>} */}
-			{/* { userState.email && window.location.pathname == "/dashboard" ? <Dashboard /> : <></>} */}
-
+			{/* {userState.email ? <Redirect to="/dashboard"/>: <></>} */}
 		</Router>
 	);
 }

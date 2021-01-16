@@ -16,7 +16,7 @@ class Snipitview extends React.Component {
         const username = this.props.username;
         const category = this.props.category;
 
-        console.log(title);
+        // console.log(title);
     return(<Card className={"snipitCard"}>
         <Card.Header><h1 className={"snipitText"}>{title}</h1></Card.Header>
         <Editor 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { Table, Tr, Td } from "../components/Table";
 import SnipitView from "../components/Snipit"
 import { Col, Row, Container } from "../components/Grid";
@@ -6,18 +6,21 @@ import InfoCard from "../components/InfoCard";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import API from "../utils/API";
-import YourSnipitsCard from "../components/YourSnipitsCard";
+import YourSnipitsCard from "../components/DashboardSnipitsCard";
 import { MongooseDocument } from "mongoose";
+
 
 function Dashboard(props) {
 
 	const user = props.username;
-	console.log(user);
+	// console.log(props);
 
 	const [snipits, setSnipits] = useState([]);
 
-	useEffect(() => {
 
+
+	useEffect(() => {
+	
 		loadSnipits();
 
 	}, []);
@@ -27,7 +30,7 @@ function Dashboard(props) {
 		// console.log(API.getSnipits)
 		API.getSnipits()
 			.then((res) => {
-				console.log(res)
+				// console.log(res)
 				setSnipits(res.data);
 			})
 			.catch((err) => console.log(err));
@@ -44,17 +47,17 @@ function Dashboard(props) {
 		return obj.username === user;
 	});
 
-	console.log(filteredSnipits);
+	// console.log(filteredSnipits);
 
 	return (<Container fluid>
 		<Row>
 			<Col size="md-3">
 				<div>
-				<InfoCard />
+				<InfoCard userinfo={props} filteredSnipits={filteredSnipits}/>
 				</div>
 			</Col>
 			<Col size="md-9">
-			<YourSnipitsCard filteredSnipits={filteredSnipits} snipits={snipits} deleteSnipit={deleteSnipit} />
+			<YourSnipitsCard filteredSnipits={filteredSnipits} snipits={snipits} deleteSnipit={deleteSnipit} user={user} setSnipits={setSnipits} />
 			</Col>
 		</Row>
 	</Container>);

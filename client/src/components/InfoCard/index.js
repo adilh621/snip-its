@@ -7,7 +7,15 @@ import DefaultProfileImg from "./Default_Profile_Img.jpg"
 import "./style.css"
 
 
-function InfoCard() {
+function InfoCard(props) {
+    console.table(props)
+    const name = props.userinfo.name;
+    const userName = props.userinfo.username;
+    const email= props.userinfo.email;
+    const snipitHistory = props.userinfo.snipits;
+    const snipitHistoryNum = snipitHistory.length;
+    const snipitsArray = props.filteredSnipits;
+    const snipitNum = snipitsArray.length;
 
     return(<Card id="infoCard">
         <div id="profileImg">
@@ -16,10 +24,11 @@ function InfoCard() {
         <Card.Header><h2>Your Info!</h2></Card.Header>
         <Card.Body>
         <ListGroup variant="flush">
-            <ListGroup.Item>Name</ListGroup.Item>
-            <ListGroup.Item>Username</ListGroup.Item>
-            <ListGroup.Item>Email</ListGroup.Item>
-            <ListGroup.Item># Of Snipiits Created</ListGroup.Item>
+            <ListGroup.Item>{name}</ListGroup.Item>
+            <ListGroup.Item>{userName}</ListGroup.Item>
+            <ListGroup.Item>{email}</ListGroup.Item>
+            <ListGroup.Item>{snipitNum} Snipits Created!</ListGroup.Item>
+            <ListGroup.Item>Total Number of Snipits Created By This Account: {snipitHistoryNum}</ListGroup.Item>
         </ListGroup>
         </Card.Body>
     </Card>);
