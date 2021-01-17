@@ -1,6 +1,7 @@
 # NPM Installs
 npm install react-bootstrap bootstrap
 
+npm i sass-loader
 npm install node-sass --save-dev
 npm rebuild node-sass
 
