@@ -5,10 +5,7 @@ import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import { set } from 'mongoose';
 
-const code = `function add(a, b) {
-  return a + b;
-}
-`;
+const code = ``;
  
 class CodeInputBox extends React.Component {
   state = { code };

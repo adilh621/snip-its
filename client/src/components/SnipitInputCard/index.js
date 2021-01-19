@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import { Col, Row } from "../Grid";
 import { ForwardRefInput, FormBtn } from "../createSnipit";
 import Card from 'react-bootstrap/Card';
+import Dropdown from 'react-bootstrap/Dropdown';
 import CodeInputBox from "../CodeInputBox";
 import "./style.css";
 
@@ -19,12 +20,12 @@ function SnipitInputCard(props) {
     const setSnipits = props.setSnipits;
     // get input element ref for focus
     const titleInputElRef = useRef();
-    const [code, setCode] = useState("")
+    const [code, setCode] = useState("");
+    const [category, setCategory] = useState("Select Category");
     const [formObject, setFormObject] = useState({
         body: "",
         username: "",
-        title: "",
-        category: ""
+        title: ""
     });
 
 
@@ -35,8 +36,7 @@ function SnipitInputCard(props) {
         setFormObject({
             body: "",
             username: "",
-            title: "",
-            category: ""
+            title: ""
         })
 
         // focus on titleInputEl if ref exists
@@ -71,8 +71,8 @@ function SnipitInputCard(props) {
         if (code) {
             console.log(code.toString());
             API.saveSnipit({
-                body: code.toString(),
-                category: formObject.category,
+                body: code,
+                category: category,
                 title: formObject.title,
                 username: currentUser
             })
@@ -80,6 +80,12 @@ function SnipitInputCard(props) {
                 .then(loadSnipits())
                 .catch((err) => console.log(err));
         }
+    }
+
+    function onClick(event) {
+        event.preventDefault();
+        setCategory(event.target.getAttribute("value"));
+
     }
 
     return (<Col size='md-12'>
@@ -91,14 +97,26 @@ function SnipitInputCard(props) {
                 </Col>
                 <Col size='sm-12'>
                     <CodeInputBox setCode={setCode} />
-                    {/* <ForwardRefInput ref={titleInputElRef} value={formObject.body} onChange={handleInputChange} name='snipit' placeholder='Your Snip-it Title' /> */}
 
                 </Col>
                 <Col size='sm-12'>
-                    <ForwardRefInput ref={titleInputElRef} value={formObject.category} onChange={handleInputChange} name='category' placeholder='Category of Snip-it' />
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            {category}
+                    </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item value="Javascript" onClick={onClick}>Javascript</Dropdown.Item>
+                            <Dropdown.Item value="Python" onClick={onClick}>Python</Dropdown.Item>
+                            <Dropdown.Item value="JSX" onClick={onClick}>JSX</Dropdown.Item>
+                            <Dropdown.Item value="React Component" onClick={onClick}>React Component</Dropdown.Item>
+                            <Dropdown.Item value="Node.js" onClick={onClick}>Node.js</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </Col>
+                <br />
                 <FormBtn
-                    disabled={!code}
+                    disabled={!code || category === "Select Category"}
                     onClick={handleFormSubmit}>
                     Submit Snipit
                 </FormBtn>
