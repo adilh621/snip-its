@@ -113,3 +113,12 @@ body {
   width: 398px;
   margin-bottom: 16px;
 }
+
+#snipitsPageSnipitsCard {
+  margin-left: 30px;
+  margin-right: -80px;
+}
+
+#snipitsPageSideBar {
+  margin-left: 50px;
+}

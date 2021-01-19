@@ -3,9 +3,11 @@ import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
 import SnipitView from "../components/Snipit"
 import { Link } from "react-router-dom";
-import { Col, Row } from "../components/Grid";
+import { Col, Row, Container } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import SnipitSearchSidebar from "../components/SnipitsSearchSidebar";
 import { ForwardRefInput, FormBtn } from "../components/createSnipit";
 
 function Snipits({ username }) {
@@ -42,6 +44,17 @@ function Snipits({ username }) {
 				<a><Link to={"/dashboard"}>Dashboard!</Link></a>
 			</Col>
 		</Row>
+		<Container fluid>
+		<Row>
+		<Col size="md-2">
+		<SnipitSearchSidebar />
+		</Col>
+		<Col size="md-9">
+		<Card id="snipitsPageSnipitsCard">
+		<Card.Header>
+			<h3>Snipits:</h3>
+			<p>Filterd By: "put filter category here!"</p></Card.Header>
+		<Card.Body>
 		<Row>
 			<Col size='md-12'>
 				{snipits.length ? (
@@ -64,7 +77,12 @@ function Snipits({ username }) {
 					<h3>No Results to Display</h3>
 				)}
 			</Col>
-		</Row>,
+		</Row>
+		</Card.Body>
+		</Card>
+		</Col>
+		</Row>
+		</Container>,
 	</>;
 }
 
