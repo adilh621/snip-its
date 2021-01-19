@@ -1,5 +1,10 @@
 .snipitText {
     color: red;
+    font-size: medium;
+}
+
+#snipitTitleTxt {
+    font-weight: bolder;
 }
 
 .snipitCard {

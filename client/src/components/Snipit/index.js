@@ -18,19 +18,19 @@ class Snipitview extends React.Component {
 
         // console.log(title);
     return(<Card className={"snipitCard"}>
-        <Card.Header><h1 className={"snipitText"}>{title}</h1></Card.Header>
+        <Card.Header><h1 className={"snipitText"} id="snipitTitleTxt">{title}</h1></Card.Header>
         <Editor 
         value={body}
         highlight={body => highlight(body, languages.js)}
         padding={10}
-        style={{fontFamily: '"Fira code", "Fira Mono", monospace', fontSize: 12,}} 
+        style={{fontFamily: '"Fira code", "Fira Mono", monospace', fontSize: 12, height: "200px"}} 
         />
         <Row>
             <Col size={"md-6"}>
-        <h2 className={"snipitText"}>{username}</h2>
+        <h2 className={"snipitText"}>Created By: {username}</h2>
             </Col>
             <Col size={"md-6"}>
-        <h2 className={"snipitText"}>{category}</h2>
+        <h2 className={"snipitText"}>Category: {category}</h2>
             </Col>
         </Row>
          </Card>)

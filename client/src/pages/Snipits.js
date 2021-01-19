@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import DeleteBtn from "../components/DeleteBtn";
 import API from "../utils/API";
 import SnipitView from "../components/Snipit"
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import SnipitSearchSidebar from "../components/SnipitsSearchSidebar";
-import { ForwardRefInput, FormBtn } from "../components/createSnipit";
 
 function Snipits({ username }) {
 	const currentUser = username;
