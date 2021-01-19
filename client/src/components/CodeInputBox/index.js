@@ -3,6 +3,7 @@ import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
+import { set } from 'mongoose';
 
 const code = `function add(a, b) {
   return a + b;
@@ -15,6 +16,9 @@ class CodeInputBox extends React.Component {
  
   render() {
     
+    const setCode = this.props.setCode;
+    setCode(this.state.code);
+
     return (
       <Editor
         value={this.state.code}

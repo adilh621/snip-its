@@ -1,5 +1,13 @@
 import React from "react";
+import Editor from 'react-simple-code-editor';
+import { highlight, languages } from 'prismjs/components/prism-core';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
 
+const code = `function add(a, b) {
+  return a + b;
+}
+`;
 
 
 // This file exports the Input, TextArea, and FormBtn components
@@ -26,6 +34,7 @@ export function TextArea(props) {
 		</div>
 	);
 }
+
 
 export function FormBtn(props) {
 	return (

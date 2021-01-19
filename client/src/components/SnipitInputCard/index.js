@@ -68,10 +68,10 @@ function SnipitInputCard(props) {
     // Then reload comments from the database
     function handleFormSubmit(event) {
         event.preventDefault();
-        if (formObject.body) {
-            console.log(formObject);
+        if (code) {
+            console.log(code.toString());
             API.saveSnipit({
-                body: formObject.body,
+                body: code.toString(),
                 category: formObject.category,
                 title: formObject.title,
                 username: currentUser
@@ -91,12 +91,14 @@ function SnipitInputCard(props) {
                 </Col>
                 <Col size='sm-12'>
                     <CodeInputBox setCode={setCode} />
+                    {/* <ForwardRefInput ref={titleInputElRef} value={formObject.body} onChange={handleInputChange} name='snipit' placeholder='Your Snip-it Title' /> */}
+
                 </Col>
                 <Col size='sm-12'>
                     <ForwardRefInput ref={titleInputElRef} value={formObject.category} onChange={handleInputChange} name='category' placeholder='Category of Snip-it' />
                 </Col>
                 <FormBtn
-                    disabled={!formObject.body}
+                    disabled={!code}
                     onClick={handleFormSubmit}>
                     Submit Snipit
                 </FormBtn>
