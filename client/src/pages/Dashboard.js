@@ -1,13 +1,11 @@
 import React, { Component, useEffect, useState } from "react";
-import { Table, Tr, Td } from "../components/Table";
-import SnipitView from "../components/Snipit"
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import InfoCard from "../components/InfoCard";
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import API from "../utils/API";
 import YourSnipitsCard from "../components/DashboardSnipitsCard";
-import { MongooseDocument } from "mongoose";
+import SnipitInputCard from "../components/SnipitInputCard"
+// import { Switch } from "react-router-dom";
 
 
 function Dashboard(props) {
@@ -16,6 +14,7 @@ function Dashboard(props) {
 	// console.log(props);
 
 	const [snipits, setSnipits] = useState([]);
+	
 
 
 
@@ -57,7 +56,14 @@ function Dashboard(props) {
 				</div>
 			</Col>
 			<Col size="md-9">
+			<Switch>
+				<Route exact path={"/dashboard"}>
 			<YourSnipitsCard filteredSnipits={filteredSnipits} snipits={snipits} deleteSnipit={deleteSnipit} user={user} setSnipits={setSnipits} />
+			</Route>
+			<Route exact path={"/dashboard/create"}>
+                        <SnipitInputCard user={user} setSnipits={setSnipits} />
+                    </Route>
+			</Switch>
 			</Col>
 		</Row>
 	</Container>);

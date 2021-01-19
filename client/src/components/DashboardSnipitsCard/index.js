@@ -32,9 +32,7 @@ function YourSnipitsCard(props) {
                             Create Snipit!
                     </Link>
                     </Button>
-                    <Route exact path={`/dashboard/create`}>
-                        <SnipitInputCard user={user} setSnipits={setSnipits} />
-                    </Route>
+                    
                 </Col>
             </Row>
         </Card.Header>
