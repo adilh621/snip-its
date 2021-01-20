@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
+import { Col, Row, Container } from "../Grid";
 import "./style.css";
 
 
@@ -29,10 +30,19 @@ function SnipitsSearchSidebar(props) {
       };
 
     return(		<Card id="snipitsPageSideBar">
-    <Card.Header><h1>Search And Filter Snipits</h1></Card.Header>
+      <Card.Header id="sideBarTitle">
+    <Row>
+    <Col size="md-12">
+    <h1>Search And Filter Snipits</h1>
+    </Col>
+    </Row>
+    </Card.Header>
+    <Row>
     <Form inline onSubmit={handleSubmit}>
-        <Form.Label>Search</Form.Label>
-      <FormControl 
+    <Col size="md-12">
+      <Form.Label>Search</Form.Label>
+      <div id="searchArea">
+       <FormControl 
       type="text" 
       onChange={event => setSearchValue(event.target.value)}
       placeholder="Snipit" 
@@ -44,7 +54,10 @@ function SnipitsSearchSidebar(props) {
         >
           Search
           </Button>
+          </div>
+    </Col>
     </Form>
+    </Row>
     <Card.Body>
         <h2>Categories:</h2>
         <ul>
