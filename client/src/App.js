@@ -38,9 +38,15 @@ function App() {
 			<Head />
 			<Container fluid>
 				<Switch>
+					<Route 
+						exact
+						path="/"
+						render={ props => (
+							<Snipits />
+						)} />
 					<Route
 						exact
-						path='/'
+						path='/login'
 						render={ props => (
 							<Login
 								{...props}
@@ -60,9 +66,9 @@ function App() {
 							/>
 						)}
 					/>
-               <ProtectedRoute exact path={["/", "/snipits"]} type="private">
+               {/* { userState.email ? <ProtectedRoute exact path={["/", "/snipits"]} type="public">
                   <Snipits {...userState} />
-               </ProtectedRoute>
+               </ProtectedRoute>:<Route exact path={"/"}><Snipits {...userState} /></Route>} */}
                <ProtectedRoute path={["/", "/dashboard"]} type="private">
                   <Dashboard {...userState} />
                </ProtectedRoute>

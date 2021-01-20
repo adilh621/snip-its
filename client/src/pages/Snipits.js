@@ -12,6 +12,7 @@ function Snipits({ username }) {
 	console.log(currentUser);
 	// Setting our component's initial state
 	const [snipits, setSnipits] = useState([]);
+	const [filter, setFilter] = useState("");
 
    
 
@@ -19,7 +20,7 @@ function Snipits({ username }) {
 	// Load all comments and store them with setComments
 	useEffect(() => {
       loadSnipits();
-   }, []);
+   }, [filter]);
    
 
 
@@ -30,27 +31,37 @@ function Snipits({ username }) {
 		API.getSnipits()
 			.then((res) => {
 				console.log(res)
+				if(filter) {
+				setSnipits(res.data.filter(function (obj) {
+					return obj.category === filter;
+				}));
+				} else {
 				setSnipits(res.data);
+				}
 			})
 			.catch((err) => console.log(err));
 	}
+
 
 	return <>
 		<Row>
 			<Col size="md-4">
 				<a><Link to={"/dashboard"}>Dashboard!</Link></a>
+				<br/>
+				<a><Link to={"/login"}>Login!</Link></a>
+
 			</Col>
 		</Row>
 		<Container fluid>
 		<Row>
 		<Col size="md-2">
-		<SnipitSearchSidebar />
+		<SnipitSearchSidebar setFilter={setFilter} />
 		</Col>
 		<Col size="md-9">
 		<Card id="snipitsPageSnipitsCard">
 		<Card.Header>
 			<h3>Snipits:</h3>
-			<p>Filterd By: "put filter category here!"</p></Card.Header>
+			<p>Filterd By: {filter}</p></Card.Header>
 		<Card.Body>
 		<Row>
 			<Col size='md-12'>
