@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { Col, Row, Container } from "../Grid";
 import "./style.css";
 
@@ -50,29 +51,20 @@ function SnipitsSearchSidebar(props) {
       placeholder="Snipit"
       className="mr-sm-2" id="searchInput" 
        />
-      <Button 
-      variant="outline-info" 
-      type="submit" 
-        >
-          Search
-          </Button>
-          </div>
+      <Button variant="outline-info" type="submit">Search</Button>
+      </div>
     </Col>
     </Form>
     </Row>
     <Card.Body>
         <h2>Categories:</h2>
-        <ul>
+        <ButtonGroup vertical>
             <Button onClick={handleClick} value="Javascript">Javascript</Button>
-            <br />
             <Button onClick={handleClick} value="HTML">HTML</Button>
-            <br />
             <Button onClick={handleClick} value="CSS">CSS</Button>
-            <br />
             <Button onClick={handleClick} value="JSX">JSX</Button>
-            <br />
             <Button onClick={handleClick} value="Python">Python</Button>
-        </ul>
+          </ButtonGroup>
         </Card.Body>
     <Card.Footer>
         <Button onClick={handleClick} value="">Reset Filters</Button></Card.Footer>
