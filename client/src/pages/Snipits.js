@@ -39,6 +39,9 @@ function Snipits({ username }) {
 		<Row>
 			<Col size="md-4">
 				<a><Link to={"/dashboard"}>Dashboard!</Link></a>
+				<br/>
+				<a><Link to={"/login"}>Login!</Link></a>
+
 			</Col>
 		</Row>
 		<Container fluid>
