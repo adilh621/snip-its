@@ -18,6 +18,7 @@ function SnipitInputCard(props) {
     let history = useHistory();
     const currentUser = props.user;
     const setSnipits = props.setSnipits;
+    const setCreateState = props.setCreateState;
     // get input element ref for focus
     const titleInputElRef = useRef();
     const [code, setCode] = useState("");
@@ -76,6 +77,7 @@ function SnipitInputCard(props) {
                 title: formObject.title,
                 username: currentUser
             })
+                .then(() => {setCreateState("dashboard")})
                 .then(history.push("/dashboard"))
                 .then(loadSnipits())
                 .catch((err) => console.log(err));

@@ -1,5 +1,5 @@
-import React, { Component, useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Route, Switch, Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import InfoCard from "../components/InfoCard";
 import API from "../utils/API";
@@ -11,9 +11,10 @@ import SnipitInputCard from "../components/SnipitInputCard"
 function Dashboard(props) {
 
 	const user = props.username;
-	// console.log(props);
+	// console.log(createState === "dashboard");
 
 	const [snipits, setSnipits] = useState([]);
+	const [createState, setCreateState] = useState("dashboard")
 	
 
 
@@ -49,6 +50,7 @@ function Dashboard(props) {
 	// console.log(filteredSnipits);
 
 	return (<Container fluid>
+				<a><Link to={"/snipits"}>Main Page!</Link></a>
 		<Row>
 			<Col size="md-3">
 				<div>
@@ -56,14 +58,9 @@ function Dashboard(props) {
 				</div>
 			</Col>
 			<Col size="md-9">
-			<Switch>
-				<Route exact path={"/dashboard"}>
-			<YourSnipitsCard filteredSnipits={filteredSnipits} snipits={snipits} deleteSnipit={deleteSnipit} user={user} setSnipits={setSnipits} />
-			</Route>
-			<Route exact path={"/dashboard/create"}>
-                        <SnipitInputCard user={user} setSnipits={setSnipits} />
-                    </Route>
-			</Switch>
+				{createState === "dashboard" && <YourSnipitsCard filteredSnipits={filteredSnipits} snipits={snipits} deleteSnipit={deleteSnipit} user={user} setSnipits={setSnipits} setCreateState={setCreateState} />}
+				   
+				{createState === "create" && <SnipitInputCard user={user} setSnipits={setSnipits} setCreateState={setCreateState} /> }
 			</Col>
 		</Row>
 	</Container>);

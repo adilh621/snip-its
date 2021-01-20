@@ -34,7 +34,7 @@ class Login extends Component {
         .then(res => {
           if(res.status === 200 ){
              this.props.setUserState(res.data)
-             history.push("/snipits");
+             history.push("/dashboard");
           }
         })
         .catch(err => console.log(err));

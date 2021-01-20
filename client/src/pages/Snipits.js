@@ -29,7 +29,7 @@ function Snipits({ username }) {
 		// console.log(API.getSnipits)
 		API.getSnipits()
 			.then((res) => {
-				console.log(res)
+				// console.log(res)
 				setSnipits(res.data);
 			})
 			.catch((err) => console.log(err));
@@ -39,6 +39,7 @@ function Snipits({ username }) {
 		<Row>
 			<Col size="md-4">
 				<a><Link to={"/dashboard"}>Dashboard!</Link></a>
+				<a><Link to={"/login"}>Login</Link></a>
 			</Col>
 		</Row>
 		<Container fluid>

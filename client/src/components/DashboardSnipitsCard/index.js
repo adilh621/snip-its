@@ -10,6 +10,7 @@ import "./style.css"
 
 
 function YourSnipitsCard(props) {
+    const setCreateState = props.setCreateState;
     const filteredSnipits = props.filteredSnipits;
     const snipits = props.snipits;
     const deleteSnipit = props.deleteSnipit;
@@ -25,12 +26,8 @@ function YourSnipitsCard(props) {
                     <h1 id="yourSnipitsTitle">Your Snipits!</h1>
                 </Col>
                 <Col size="md-3">
-                    <Button id="createSnipitBtn">
-                        <Link
-                            to="/dashboard/create"
-                            className={location.pathname === "/dashboard/create" ? "nav-link active" : "nav-link"}>
+                    <Button id="createSnipitBtn" onClick={setCreateState("create")}>
                             Create Snipit!
-                    </Link>
                     </Button>
                     
                 </Col>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import Snipits from "./pages/Snipits";
 import { Container } from "./components/Grid";
 import Dashboard from "./pages/Dashboard";
@@ -9,17 +9,19 @@ import NoMatch from "./pages/NoMatch";
 import Head from "./components/Head";
 import userAPI from "./utils/userAPI";
 import ProtectedRoute from "./components/ProtectedRoute"
+import history from "./utils/History"
 
 function App() {
 	const [userState, setUserState] = useState({});
-
-	function Redirect() {
-		window.location.href = "/snipits"
-	}
+	const path = history.location.pathname;
+	console.log(path);
 
    useEffect(() => { 
 	   // auth user on first render
-	  authenticate() 
+	  authenticate()
+	  .then(() => {
+		// userState.username ? <Redirect to="/dashboard"/>: <></>
+	  })
 	  
    }, []);
 
@@ -34,13 +36,16 @@ function App() {
 	}
 
 	return (
-		<Router>
+		<Router history={history}>
 			<Head />
 			<Container fluid>
 				<Switch>
+				<Route exact path="/" type="public">
+                  <Snipits {...userState} />
+               </Route>
 					<Route
 						exact
-						path='/'
+						path='/login'
 						render={ props => (
 							<Login
 								{...props}
@@ -60,16 +65,13 @@ function App() {
 							/>
 						)}
 					/>
-               <ProtectedRoute exact path={["/", "/snipits"]} type="private">
-                  <Snipits {...userState} />
-               </ProtectedRoute>
                <ProtectedRoute path={["/", "/dashboard"]} type="private">
                   <Dashboard {...userState} />
                </ProtectedRoute>
 					<Route component={NoMatch} />
 				</Switch>
 			</Container>
-			{/* {userState.email ? <Redirect to="/dashboard"/>: <></>} */}
+			{/* {userState.email ? <Redirect to={path} />: <></>} */}
 		</Router>
 	);
 }
