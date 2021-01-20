@@ -13,6 +13,7 @@ function Snipits({ username }) {
 	// Setting our component's initial state
 	const [snipits, setSnipits] = useState([]);
 	const [filter, setFilter] = useState("");
+	const [search, setSearch] = useState("");
 
    
 
@@ -20,9 +21,19 @@ function Snipits({ username }) {
 	// Load all comments and store them with setComments
 	useEffect(() => {
       loadSnipits();
-   }, [filter]);
+   }, [filter, search]);
    
+   function filterByCategory(data) {
+	setSnipits(data.filter(function (obj) {
+		return obj.category === filter;
+	}));
+   };
 
+   function searchByTitle(data) {
+	   setSnipits(data.filter(function (obj) {
+		   return obj.title === search;
+	   }));
+   };
 
 	// Loads all comments and sets them to comments
 	function loadSnipits() {
@@ -32,10 +43,10 @@ function Snipits({ username }) {
 			.then((res) => {
 				console.log(res)
 				if(filter) {
-				setSnipits(res.data.filter(function (obj) {
-					return obj.category === filter;
-				}));
-				} else {
+				filterByCategory(res.data);
+				} else if(search) {
+				searchByTitle(res.data);
+				} else if (filter === "" && search === "") {
 				setSnipits(res.data);
 				}
 			})
@@ -45,7 +56,7 @@ function Snipits({ username }) {
 
 	return <>
 		<Row>
-			<Col size="md-4">
+			<Col size="md-12">
 				<a><Link to={"/dashboard"}>Dashboard!</Link></a>
 				<br/>
 				<a><Link to={"/login"}>Login!</Link></a>
@@ -54,8 +65,8 @@ function Snipits({ username }) {
 		</Row>
 		<Container fluid>
 		<Row>
-		<Col size="md-2">
-		<SnipitSearchSidebar setFilter={setFilter} />
+		<Col size="md-3">
+		<SnipitSearchSidebar setFilter={setFilter} setSearch={setSearch} search={search} />
 		</Col>
 		<Col size="md-9">
 		<Card id="snipitsPageSnipitsCard">
