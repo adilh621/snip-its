@@ -14,7 +14,7 @@ const userSeed =
       username: "Skirkp18",
       name:"sean",
       email: "Skirkp18@gmail.com",
-      password: "1"
+      password: "test"
    }
 ;
 const snipitsSeeds = [
@@ -22,8 +22,8 @@ const snipitsSeeds = [
       body: "<h1>Hello World!</h1>",
       username: "Admin",
       title:"firstsnipit",
-      category:"c",
-      date:"01/07/2021"
+      category:"JSX",
+      date:"01/19/2021"
    }
    
 

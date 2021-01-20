@@ -1,26 +1,36 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 
-function SnipitsSearchSidebar() {
+
+function SnipitsSearchSidebar(props) {
+    const setFilter = props.setFilter;
+
+    
+    const handleClick = (event) => {
+        event.preventDefault();
+        console.log(event.target.value);
+        setFilter(event.target.value)
+    }
 
     return(		<Card id="snipitsPageSideBar">
     <Card.Header><h1>Search And Filter Snipits</h1></Card.Header>
     <Card.Body style={{backgroundColor: "blue"}}>
         <h2>Categories:</h2>
         <ul>
-            <a href=""><li>Javascript</li></a>
+            <Button onClick={handleClick} value="Javascript">Javascript</Button>
             <br />
-            <a href=""><li>HTML</li></a>
+            <Button onClick={handleClick} value="HTML">HTML</Button>
             <br />
-            <a href=""><li>CSS</li></a>
+            <Button onClick={handleClick} value="CSS">CSS</Button>
             <br />
-            <a href=""><li>JSX</li></a>
+            <Button onClick={handleClick} value="JSX">JSX</Button>
             <br />
-            <a href=""><li>Python</li></a>
+            <Button onClick={handleClick} value="Python">Python</Button>
         </ul>
         </Card.Body>
-    <Card.Footer><a href=""><p>Reset Filters</p></a></Card.Footer>
+    <Card.Footer><Button onClick={handleClick} value="">Reset Filters</Button></Card.Footer>
 </Card>);
 };
 
