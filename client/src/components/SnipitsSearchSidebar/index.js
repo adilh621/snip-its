@@ -27,6 +27,7 @@ function SnipitsSearchSidebar(props) {
         //  console.log(searchValue);
         event.preventDefault();
         setSearch(searchValue)
+        setSearchValue("")
       };
 
     return(		<Card id="snipitsPageSideBar">
@@ -43,9 +44,10 @@ function SnipitsSearchSidebar(props) {
       <Form.Label>Search</Form.Label>
       <div id="searchArea">
        <FormControl 
-      type="text" 
+      type="text"
+      value={searchValue}
       onChange={event => setSearchValue(event.target.value)}
-      placeholder="Snipit" 
+      placeholder="Snipit"
       className="mr-sm-2" id="searchInput" 
        />
       <Button 
