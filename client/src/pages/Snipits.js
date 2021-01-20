@@ -77,7 +77,6 @@ function Snipits({ username }) {
 		<Row>
 			<Col size='md-12'>
 				{snipits.length ? (
-					<Table>
 						<Row>
 						{snipits.map(snipit => {
 							console.log(snipit);
@@ -91,7 +90,6 @@ function Snipits({ username }) {
 						)}
 						)}
 						</Row>
-					</Table>
 				) : (
 					<h3>No Results to Display</h3>
 				)}
