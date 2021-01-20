@@ -12,7 +12,7 @@ function SnipitsSearchSidebar(props) {
     const setFilter = props.setFilter;
     const setSearch = props.setSearch;
     const search = props.search;
-    const [searchValue, setSearchValue] = useState();    
+    const [searchValue, setSearchValue] = useState("");    
 
 
     
@@ -20,8 +20,10 @@ function SnipitsSearchSidebar(props) {
         event.preventDefault();
         console.log(event.target.value);
         setFilter(event.target.value);
-        setSearchValue(event.target.value);
-        setSearch(event.target.value)
+        if (event.target.value === "") {
+          setSearchValue(event.target.value);
+          setSearch(event.target.value)
+        }
     };
 
      function handleSubmit(event) {
@@ -48,7 +50,7 @@ function SnipitsSearchSidebar(props) {
       type="text"
       value={searchValue}
       onChange={event => setSearchValue(event.target.value)}
-      placeholder="Snipit"
+      placeholder="Search By Title"
       className="mr-sm-2" id="searchInput" 
        />
       <Button variant="outline-info" type="submit">Search</Button>
