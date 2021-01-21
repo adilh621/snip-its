@@ -9,10 +9,9 @@ function Footer() {
   return (
     //jsx
     <footer>
-      <hr />
-      <p className="pull-right">
-        <i className="fab fa-github" /> Built using React.js
-      </p>
+      <div id={"footerBox"}>
+      <p id={"footerTxt"}>© Snipits 2021</p>
+      </div>
     </footer>
   );
 }
