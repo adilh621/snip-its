@@ -35,9 +35,7 @@ module.exports = {
   logout: function (req, res) {
     req.logout();
     req.session.destroy();
-    //  res.clearCookie("stat");
-    req.user = null;
-    res.redirect(307, "/api/user/authenticate");
+    res.redirect("/")
   },
 
   authenticate: function (req, res) {

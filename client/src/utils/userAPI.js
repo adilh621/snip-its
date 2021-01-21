@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export default {
   loginUser: function (user) {
     return axios.post("/api/user/login", user);
@@ -10,7 +11,7 @@ export default {
   authenticateUser: function () {
     return axios.post("/api/user/authenticate/");
   },
-  logoutUser: function (user) {
-    return axios.post("/api/user/logout", user);
+  logoutUser: function () {
+    return axios.get("/api/user/logout");
   },
 };
