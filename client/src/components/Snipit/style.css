@@ -1,9 +1,18 @@
 .snipitText {
-    color: red;
+    color: black;
+    font-size: small;
+    font-weight: bold;
+    font-family: 'Source Code Pro', monospace;
+}
+
+#snipitTitleTxt {
+    font-weight: bolder;
+    font-family: 'Source Code Pro', monospace;
     font-size: medium;
 }
 
 #snipitTitleTxt {
+    margin-top: 5px;
     font-weight: bolder;
 }
 
@@ -11,8 +20,30 @@
     margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    height: 200px;
-    width: 300px;
-    background-color: white;
+    height: 400px;
+    width: 200px;
+    background-color: darkslateblue;
 
+}
+
+#titleBox {
+    border-bottom: solid black 2px;
+    height: 50px;
+    margin-top: 20px;
+    margin: auto;
+    overflow: scroll;
+    background-color: #8940de;
+}
+
+#snipitInfoTxtBox {
+    margin: auto;
+    height: 70px ;
+    background-color: aqua;
+    border-top: solid black 2px;
+}
+
+.snipitInfoTxt {
+    font-family: 'Source Code Pro', monospace;
+    font-size: small;
+    margin-top: 5px;
 }

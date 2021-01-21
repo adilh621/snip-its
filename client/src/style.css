@@ -117,14 +117,51 @@ body {
 #snipitsPageSnipitsCard {
   margin-left: 30px;
   margin-right: 50px;
-  background-color: aliceblue;
+  background-color: darkslateblue;
 }
 
 #snipitsPageSideBar {
   margin-left: 50px;
 }
 
-#searchInput {
-  width: 215px;
+.mainpageTitle {
+  font-family: 'Source Code Pro', monospace;
+  color: black;
 }
 
+#logo {
+  height: 200px;
+  width: 400px;
+  margin-bottom: -50px;
+  margin-top: -50px;
+
+}
+
+.filter {
+  font-family: 'Source Code Pro', monospace;
+  font-size: small;
+  margin-bottom: -20px;
+}
+
+#noResultsTxt {
+  margin-top: 200px;
+  margin-bottom: 400px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: xx-large;
+}
+
+#mainpageLogo {
+  background-color: aqua;
+  border: solid black 2px;
+}
+
+#descriptionTxtBox {
+  background-color: #8940de;
+  border: solid black 2px;
+  border-top: none;
+
+}
+
+.fontStyle {
+  font-family: 'Source Code Pro', monospace;
+}

@@ -55,7 +55,6 @@ function Snipits({ username }) {
   }
 
   return (
-    <>
       <Container fluid>
         <Row>
           <Col size="md-3">
@@ -68,10 +67,22 @@ function Snipits({ username }) {
           <Col size="md-9">
             <Card id="snipitsPageSnipitsCard">
               <Card.Header>
-                <h3>Snipits:</h3>
-                <p>Filterd By: {filter}</p>
+                <div id={"mainpageLogo"}>
+                <img src="/assets/logo.png" id="logo" />
+                </div>
+                <div id={"descriptionTxtBox"}>
+                <h2 className={"mainpageTitle"}>Check Out Code Others Have Shared And Sign Up And Share Your Own</h2>
+                </div>
               </Card.Header>
               <Card.Body>
+                <Row>
+                  <Col size={"2"}>
+                      <p className={"filter"}>Filterd Snipits By:</p>
+                  </Col>
+                  <Col size={"3"}>
+                      <p className={"filter"}> {filter} </p>
+                  </Col>
+                </Row>
                 <Row>
                   <Col size="md-12">
                     {snipits.length ? (
@@ -95,8 +106,8 @@ function Snipits({ username }) {
                         })}
                       </Row>
                     ) : (
-                      <h3>No Results to Display</h3>
-                    )}
+                        <p id="noResultsTxt">No Results to Match Your Search</p>
+                      )}
                   </Col>
                 </Row>
               </Card.Body>
@@ -104,8 +115,6 @@ function Snipits({ username }) {
           </Col>
         </Row>
       </Container>
-      ,
-    </>
   );
 }
 

@@ -11,7 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
-import Head from "./components/Head";
+import Footer from "./components/Footer";
 import userAPI from "./utils/userAPI";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Nav from "./components/Navbar";
@@ -84,6 +84,7 @@ function App() {
         </Switch>
       </Container>
       {/* {userState.email ? <Redirect to="/dashboard"/>: <></>} */}
+    <Footer />
     </Router>
   );
 }

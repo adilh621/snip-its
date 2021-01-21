@@ -9,66 +9,80 @@ import "./style.css";
 
 
 function SnipitsSearchSidebar(props) {
-    const setFilter = props.setFilter;
-    const setSearch = props.setSearch;
-    const search = props.search;
-    const [searchValue, setSearchValue] = useState("");    
+  const setFilter = props.setFilter;
+  const setSearch = props.setSearch;
+  const search = props.search;
+  const [searchValue, setSearchValue] = useState("");
 
 
-    
-    const handleClick = (event) => {
-        event.preventDefault();
-        console.log(event.target.value);
-        setFilter(event.target.value);
-        if (event.target.value === "") {
-          setSearchValue(event.target.value);
-          setSearch(event.target.value)
-        }
-    };
 
-     function handleSubmit(event) {
-        //  console.log(searchValue);
-        event.preventDefault();
-        setSearch(searchValue)
-        setSearchValue("")
-      };
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    setFilter(event.target.value);
+    if (event.target.value === "") {
+      setSearchValue(event.target.value);
+      setSearch(event.target.value)
+    }
+  };
 
-    return(		<Card id="snipitsPageSideBar">
-      <Card.Header id="sideBarTitle">
-    <Row>
-    <Col size="lg-12">
-    <h1>Search And Filter Snipits</h1>
-    </Col>
-    </Row>
+  function handleSubmit(event) {
+    //  console.log(searchValue);
+    event.preventDefault();
+    setSearch(searchValue)
+    setSearchValue("")
+  };
+
+  return (<Card id="snipitsPageSideBar">
+
+    <Card.Header id={"sideBarTitle"}>
+      <Card id={"searchTitleTxtBox"}>
+        <p id={"searchTitleTxt"}>Search And Filter Snipits</p>
+      </Card>
     </Card.Header>
-    <Row>
-    <Form inline onSubmit={handleSubmit}>
-    <Col size="lg-12">
-      <Form.Label>Search</Form.Label>
-      <div id="searchArea">
-       <FormControl 
-      type="text"
-      value={searchValue}
-      onChange={event => setSearchValue(event.target.value)}
-      placeholder="Search By Title"
-      className="mr-sm-2" id="searchInput" 
-       />
-      <Button variant="outline-info" type="submit">Search</Button>
-      </div>
-    </Col>
-    </Form>
-    </Row>
     <Card.Body>
-        <h2>Categories:</h2>
-        <ButtonGroup vertical>
-            <Button onClick={handleClick} value="Javascript">Javascript</Button>
-            <Button onClick={handleClick} value="HTML">HTML</Button>
-            <Button onClick={handleClick} value="CSS">CSS</Button>
-            <Button onClick={handleClick} value="JSX">JSX</Button>
-            <Button onClick={handleClick} value="Python">Python</Button>
+      <div id={"searchBox"}>
+        <Form inline onSubmit={handleSubmit}>
+          <Row>
+            <Col size={"lg-12"}>
+              <div id={"searchAreaInputAndBtn"}>
+                <Row>
+                  <Col size={"lg-9"}>
+                  <FormControl
+                type="text"
+                value={searchValue}
+                onChange={event => setSearchValue(event.target.value)}
+                placeholder="Search By Title"
+                className="mr-sm-2" id="searchInput"
+              />
+                  </Col>
+                  <Col size={"lg-3"}>
+                  <Button className="fontStyle" variant="outline-info" type="submit">Search</Button>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          </Row>
+        </Form>
+        <Row>
+          <Col size={"lg-12"}>
+          <h2 className={"fontStyle"}>Categories:</h2>
+          </Col>
+          <Col size={"lg-12"}>
+          <Card>
+          <ButtonGroup vertical>
+            <Button className={"filterOptionsBtn"} onClick={handleClick} value="Javascript">Javascript</Button>
+            <Button className={"filterOptionsBtn"} onClick={handleClick} value="HTML">HTML</Button>
+            <Button className={"filterOptionsBtn"} onClick={handleClick} value="CSS">CSS</Button>
+            <Button className={"filterOptionsBtn"} onClick={handleClick} value="JSX">JSX</Button>
+            <Button className={"filterOptionsBtn"} onClick={handleClick} value="Python">Python</Button>
           </ButtonGroup>
-        </Card.Body>
-    <Card.Footer>
+          </Card>
+          </Col>
+          </Row>
+        </div>
+      </Card.Body>
+      <Card.Footer>
         <Button onClick={handleClick} value="">Reset Filters</Button></Card.Footer>
 </Card>);
 };
