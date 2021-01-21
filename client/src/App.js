@@ -42,9 +42,7 @@ function App() {
   function logout() {
     console.log("logout");
     userAPI
-      .logoutUser({
-        user: userState,
-      })
+      .logoutUser()
       .then((userState) => {
         console.log(userState);
         userState = {};
