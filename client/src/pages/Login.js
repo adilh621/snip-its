@@ -3,6 +3,8 @@ import userAPI from "../utils/userAPI";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/createSnipit";
+import "./Login.css"
+
 
 class Login extends Component {
   state = {
@@ -52,12 +54,14 @@ class Login extends Component {
                 onChange={this.handleInputChange}
                 name="email"
                 placeholder="Email (required)"
+                // style={{justifyContent: 'center'}}
               />
               <Input
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
                 placeholder="Password (required)"
+                // style={{justifyContent: 'center'}}
                 type="password"
               />
               

@@ -36,14 +36,14 @@ function SnipitsSearchSidebar(props) {
     return(		<Card id="snipitsPageSideBar">
       <Card.Header id="sideBarTitle">
     <Row>
-    <Col size="md-12">
+    <Col size="lg-12">
     <h1>Search And Filter Snipits</h1>
     </Col>
     </Row>
     </Card.Header>
     <Row>
     <Form inline onSubmit={handleSubmit}>
-    <Col size="md-12">
+    <Col size="lg-12">
       <Form.Label>Search</Form.Label>
       <div id="searchArea">
        <FormControl 

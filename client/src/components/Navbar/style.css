@@ -1,4 +1,17 @@
 #logo {
-  height: 125px;
-  width: 200px;
+  height: 300px;
+  width: 250px;
+  
+}
+body{ 
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 65%, rgb(43, 138, 156) 100%);
+
+}
+h3{ 
+  color: #ffff !important;
+  
+}
+.nonuser{
+  color: #ffff !important;
+  font-size: 1.5rem;
 }

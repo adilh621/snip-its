@@ -1,13 +1,18 @@
 #snipitsPageSideBar {
-    background-color: aliceblue;
+    background-color: red;
     border: solid 1px black;
 }
 
 #sideBarTitle {
     background-color: lightgoldenrodyellow;
+    color: black!important;
 }
 
 #searchArea {
     margin-left: 17px;
     width: 100%;
+    color: black !important;
+}
+h2{
+    color: white;
 }

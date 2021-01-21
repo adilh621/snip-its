@@ -7,4 +7,14 @@
 #infoCard {
     margin: auto;
     width: 300px;
+    background-color: grey !important;
+}
+h2{ 
+    text-align: center !important;
+
+    
+}
+body{
+    color: black !important;
+    text-align: center !important;
 }

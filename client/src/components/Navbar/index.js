@@ -18,7 +18,7 @@ function Nav({ userState, logout }) {
   console.log(logout);
   return (
     //jsx
-    <Navbar bg="light">
+    <Navbar bg="red">
       <Link to="/">
         <img src={logo} id="logo" />
       </Link>
@@ -26,7 +26,7 @@ function Nav({ userState, logout }) {
       {userState.email ? (
         <Button onClick={logout}>Logout of {userState.username}</Button>
       ) : (
-        <div>No User logged in</div>
+        <div className="nonuser">No User logged in</div>
       )}
       {userState.email ? (
         // <a href="/dashboard">Dashboard</a>
