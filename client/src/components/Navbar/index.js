@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import useLogRender from "../../utils/useLogPath";
 import { Navbar, Button } from "react-bootstrap";
 import "./style.css";
@@ -6,15 +7,18 @@ import logo from "./Snip.png";
 import { Link } from "react-router-dom";
 import userAPI from "../../utils/userAPI";
 
+
 function Nav({ userState, logout }) {
   useLogRender();
   const user = userState;
-  // function logout() {
-  //   console.log("logout");
-  //   userAPI.logoutUser({
-  //     user: userState,
-  //   });
-  // }
+  const history = useHistory();
+
+  function logout() {
+    // console.log(user);
+    userAPI.logoutUser()
+    .then(location.reload())
+  }
+
   console.log(logout);
   return (
     //jsx
