@@ -31,7 +31,7 @@ function Snipits({ username }) {
 
    function searchByTitle(data) {
 	   setSnipits(data.filter(function (obj) {
-		   return obj.title === search;
+		   return obj.title.toLowerCase() === search.toLowerCase();
 	   }));
    };
 
@@ -77,6 +77,7 @@ function Snipits({ username }) {
 		<Row>
 			<Col size='md-12'>
 				{snipits.length ? (
+					<Table>
 						<Row>
 						{snipits.map(snipit => {
 							console.log(snipit);
@@ -90,6 +91,7 @@ function Snipits({ username }) {
 						)}
 						)}
 						</Row>
+					</Table>
 				) : (
 					<h3>No Results to Display</h3>
 				)}
