@@ -8,7 +8,12 @@ function Footer() {
 
   return (
     //jsx
-    <div>Hi</div>
+    <footer>
+      <hr />
+      <p className="pull-right">
+        <i className="fab fa-github" /> Built using React.js
+      </p>
+    </footer>
   );
 }
 

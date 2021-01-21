@@ -29,6 +29,7 @@ function App() {
   }, []);
 
   //user authentication
+
   function authenticate() {
     return userAPI
       .authenticateUser()
@@ -38,11 +39,22 @@ function App() {
       })
       .catch((err) => console.log("registered user:", err.response));
   }
+  function logout() {
+    console.log("logout");
+    userAPI
+      .logoutUser({
+        user: userState,
+      })
+      .then((userState) => {
+        console.log(userState);
+        userState = {};
+      });
+  }
 
   return (
     <Router>
       {/* <Head /> */}
-      <Nav userState={userState} />
+      <Nav userState={userState} logout={logout} />
       <Container fluid>
         <Switch>
           <Route exact path="/" render={(props) => <Snipits />} />
