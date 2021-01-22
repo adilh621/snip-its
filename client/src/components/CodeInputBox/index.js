@@ -24,7 +24,7 @@ class CodeInputBox extends React.Component {
         padding={10}
         style={{
           fontFamily: '"Fira code", "Fira Mono", monospace',
-          fontSize: 12,
+          fontSize: 12, height: "200px",
         }}
       />
     );

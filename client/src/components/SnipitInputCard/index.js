@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import API from "../../utils/API";
 import { Col, Row } from "../Grid";
 import { ForwardRefInput, FormBtn } from "../createSnipit";
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import CodeInputBox from "../CodeInputBox";
 import "./style.css";
@@ -89,17 +90,17 @@ function SnipitInputCard(props) {
     }
 
     return (<Col size='md-12'>
-        <Card id="snipitInputCard">
-            <Card.Header><h1>Create Your Snipit:</h1></Card.Header>
+        <div id="snipitInputCard" style={{backgroundColor: "darkslateblue", padding: "0px", border: "solid black 2px"}}>
+            <p className={"fontStyle"}>Create Your Snipit:</p>
             <form>
-                <Col size='sm-12'>
+                <br />
                     <ForwardRefInput ref={titleInputElRef} value={formObject.title} onChange={handleInputChange} name='title' placeholder='Your Snip-it Title' />
-                </Col>
-                <Col size='sm-12'>
+                <br />
+                    <div style={{border: "solid black 2px", marginBottom: "10px", backgroundColor: "darkgrey"}}>
                     <CodeInputBox setCode={setCode} />
-
-                </Col>
-                <Col size='sm-12'>
+                    </div>
+                <br />
+                    <div style={{alignContent: "center"}}>
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">
                             {category}
@@ -113,15 +114,22 @@ function SnipitInputCard(props) {
                             <Dropdown.Item value="Node.js" onClick={onClick}>Node.js</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
-                </Col>
+                    </div>
                 <br />
-                <FormBtn
+                <Row>
+                <Col size={"sm-6"}>
+                    <FormBtn
                     disabled={!code || category === "Select Category"}
                     onClick={handleFormSubmit}>
                     Submit Snipit
                 </FormBtn>
+                </Col>
+                <Col size={"sm-6"}>
+                <Link to="/dashboard"><Button variant="info">Cancel</Button></Link>
+                </Col>
+                </Row>
             </form>
-        </Card>
+        </div>
     </Col>);
 };
 

@@ -18,14 +18,16 @@ function YourSnipitsCard(props) {
 
 
 
-    return (<Card id="yourSnipitsCard">
-        <Card.Header style={{ textAlign: "center" }}>
+    return (<Card id="yourSnipitsCard" style={{backgroundColor: "darkslateblue", border: "solid black 2px"}}>
+        <Card.Header style={{backgroundColor: "darkslateblue", borderBottom: "solid black 2px"}}>
             <Row>
                 <Col size="md-9">
-                    <h1 id="yourSnipitsTitle">Your Snipits!</h1>
+                    <div>
+                    <h1 id="yourSnipitsTitle" className={"fontStyle"} style={{marginLeft: "-400px", marginTop: "15px"}}>Your Snipits!</h1>
+                    </div>
                 </Col>
                 <Col size="md-3">
-                    <Button id="createSnipitBtn">
+                    <Button variant="info" id="createSnipitBtn">
                         <Link
                             to="/dashboard/create"
                             className={location.pathname === "/dashboard/create" ? "nav-link active" : "nav-link"}>
@@ -38,7 +40,6 @@ function YourSnipitsCard(props) {
         </Card.Header>
         <Card.Body>
             {snipits.length ? (
-                <Table>
                     <Row>
                         {filteredSnipits.map(snipit => {
                             // console.log(snipit);
@@ -56,7 +57,6 @@ function YourSnipitsCard(props) {
                         }
                         )}
                     </Row>
-                </Table>
             ) : (
                     <h3>No Results to Display</h3>
                 )}
