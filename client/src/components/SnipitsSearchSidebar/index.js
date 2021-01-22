@@ -83,7 +83,7 @@ function SnipitsSearchSidebar(props) {
         </div>
       </Card.Body>
       <Card.Footer>
-        <Button onClick={handleClick} value="">Reset Filters</Button></Card.Footer>
+        <Button variant="info" onClick={handleClick} value="">Reset Filters</Button></Card.Footer>
 </Card>);
 };
 

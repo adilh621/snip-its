@@ -21,14 +21,16 @@ function InfoCard(props) {
         <div id="profileImg">
         <ReactRoundedImage image={DefaultProfileImg} roundedColor="#321124" roundedSize="2"/>
         </div>
-        <Card.Header><h2>Your Info!</h2></Card.Header>
-        <Card.Body>
-        <ListGroup variant="flush">
-            <ListGroup.Item>{name}</ListGroup.Item>
-            <ListGroup.Item>{userName}</ListGroup.Item>
-            <ListGroup.Item>{email}</ListGroup.Item>
-            <ListGroup.Item>{snipitNum} Snipits Created!</ListGroup.Item>
-            <ListGroup.Item>Total Number of Snipits Created By This Account: {snipitHistoryNum}</ListGroup.Item>
+        <Card.Header>
+        <h2 className={"fontStyle"}>Welcome:</h2>
+        <h2 className={"fontStyle"}>{name}</h2>
+        </Card.Header>
+        <Card.Body style={{backgroundColor: "aqua"}}>
+        <ListGroup variant="flush" >
+            <ListGroup.Item style={{backgroundColor: "#8940de"}}><p className={"fontStyle"}>Username: {userName}</p></ListGroup.Item>
+            <ListGroup.Item style={{backgroundColor: "#8940de"}}><p className={"fontStyle"}>Email: {email}</p></ListGroup.Item>
+            <ListGroup.Item style={{backgroundColor: "#8940de"}}><p className={"fontStyle"}>{snipitNum} Snipits Currently Being Shared!</p></ListGroup.Item>
+            <ListGroup.Item style={{backgroundColor: "#8940de"}}><p className={"fontStyle"}>Total Number of Snipits Created By This Account: {snipitHistoryNum}</p></ListGroup.Item>
         </ListGroup>
         </Card.Body>
     </Card>);

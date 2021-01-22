@@ -1,6 +1,7 @@
 #yourSnipitsCard {
     margin: auto;
-    width: 95%;
+    width: 1000px;
+    height: 1000px;
 }
 
 #yourSnipitsTitle {
@@ -9,6 +10,6 @@
 }
 
 #createSnipitBtn {
-    margin-top: 10px;
+    margin-top: 3px;
     margin-left: 100px;
 }
