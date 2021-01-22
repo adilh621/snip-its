@@ -54,14 +54,14 @@ class Login extends Component {
                 onChange={this.handleInputChange}
                 name="email"
                 placeholder="Email (required)"
-                // style={{justifyContent: 'center'}}
+                style={{textAlign: 'center'}}
               />
               <Input
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
                 placeholder="Password (required)"
-                // style={{justifyContent: 'center'}}
+                style={{textAlign: 'center'}}
                 type="password"
               />
               

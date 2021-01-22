@@ -48,7 +48,7 @@ function Dashboard(props) {
 
 	// console.log(filteredSnipits);
 
-	return (<Container fluid>
+	return (<Container >
 		<Row>
 			<Col size="md-3">
 				<div>
