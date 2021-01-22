@@ -14,8 +14,9 @@ function Nav({ userState, logout, logoutState}) {
   const history = useHistory();
 
 
-  console.log(logoutState)
-  console.log(logout);
+  // console.log(logoutState)
+  // console.log(history);
+  const path = history.location.pathname;
 
 
   return (
@@ -24,21 +25,22 @@ function Nav({ userState, logout, logoutState}) {
       <Link to="/">
         <img src={logo} id="logo" />
       </Link>
+      {userState.email || path === "/login" ? <></>:
       <Link to="/login">
           <Button> Login </Button>
-        </Link>
+        </Link>}
       {userState.email ? (
         <Button onClick={()=>{logout()}}>Logout of {userState.username}</Button>
       ) : (
-        <div className="nonuser">No User logged in</div>
+        <></>
       )}
-      {userState.email ? (
+      {userState.email && path === "/" ? (
         // <a href="/dashboard">Dashboard</a>
         <Link to="/dashboard">
           <Button> Dashboard </Button>
         </Link>
       ) : (
-        <h3>Login to see your Dashboard!</h3>
+        <></>
       )}
     </Navbar>
   );
