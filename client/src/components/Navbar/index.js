@@ -21,23 +21,25 @@ function Nav({ userState, logout, logoutState}) {
 
   return (
     //jsx
-    <Navbar bg="red">
+    <Navbar bg="red" className={"snipitsNav justify-content-between"}>
       <Link to="/">
         <img src={logo} id="logo" />
       </Link>
+      <Navbar.Collapse className="justify-content-end">
       {userState.email || path === "/login" ? <></>:
       <Link to="/login">
-          <Button> Login </Button>
+          <Button variant="info" style={{float: "right"}}> Login </Button>
         </Link>}
       {userState.email ? (
-        <Button onClick={()=>{logout()}}>Logout of {userState.username}</Button>
+        <Button onClick={()=>{logout()}} variant="info">Logout of {userState.username}</Button>
       ) : (
         <></>
       )}
+      </Navbar.Collapse>
       {userState.email && path === "/" ? (
         // <a href="/dashboard">Dashboard</a>
         <Link to="/dashboard">
-          <Button> Dashboard </Button>
+          <Button variant="info"> Dashboard </Button>
         </Link>
       ) : (
         <></>

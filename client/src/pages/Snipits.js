@@ -6,7 +6,6 @@ import { Col, Row, Container } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import Card from "react-bootstrap/Card";
 import SnipitSearchSidebar from "../components/SnipitsSearchSidebar";
-import path from "path";
 
 function Snipits({ username }) {
   const currentUser = username;
@@ -69,7 +68,7 @@ function Snipits({ username }) {
             <Card id="snipitsPageSnipitsCard">
               <Card.Header>
                 <div id={"mainpageLogo"}>
-                <img src={path.join("/logo.png")} id="logo" />
+                <img src={"https://i.imgur.com/JmiwwlY.png"} id="logo" />
                 </div>
                 <div id={"descriptionTxtBox"}>
                 <h2 className={"mainpageTitle"}>Check Out Code Others Have Shared And Sign Up And Share Your Own</h2>
