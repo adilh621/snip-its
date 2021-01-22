@@ -58,7 +58,7 @@ function YourSnipitsCard(props) {
                         )}
                     </Row>
             ) : (
-                    <h3>No Results to Display</h3>
+                    <h3 className={"fontStyle"}>You Don't Have Any Snipits Created. Click The Create Snipit Btn To Share Your Snipit! </h3>
                 )}
         </Card.Body>
     </Card>);
