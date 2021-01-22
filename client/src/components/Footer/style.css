@@ -1,8 +1,9 @@
 #footerBox {
-    border: solid black 2px;
+    /* border: solid black 2px; */
     margin-top: 25px;
     height: 75px;
-    background-color: darkslateblue;  
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 65%, rgb(43, 138, 156) 100%);
+ 
 }
 
 #footerTxt {
@@ -10,4 +11,5 @@
     font-size: large;
     font-weight: medium;
     margin-top: 20px;
+    color: #fff;
 }

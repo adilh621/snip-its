@@ -75,7 +75,7 @@ class Signup extends Component {
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
-                placeholder="(Passoword)"
+                placeholder="(Password)"
                 type="password"
               />
               <Input

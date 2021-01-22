@@ -77,7 +77,7 @@ function Snipits({ username }) {
               <Card.Body>
                 <Row>
                   <Col size={"2"}>
-                      <p className={"filter"}>Filterd Snipits By:</p>
+                      <p className={"filter"}>Filtered Snipits By:</p>
                   </Col>
                   <Col size={"3"}>
                       <p className={"filter"}> {filter} </p>
