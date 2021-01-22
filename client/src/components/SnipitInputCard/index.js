@@ -110,8 +110,10 @@ function SnipitInputCard(props) {
                             <Dropdown.Item value="Javascript" onClick={onClick}>Javascript</Dropdown.Item>
                             <Dropdown.Item value="Python" onClick={onClick}>Python</Dropdown.Item>
                             <Dropdown.Item value="JSX" onClick={onClick}>JSX</Dropdown.Item>
-                            <Dropdown.Item value="React Component" onClick={onClick}>React Component</Dropdown.Item>
+                            <Dropdown.Item value="React" onClick={onClick}>React</Dropdown.Item>
                             <Dropdown.Item value="Node.js" onClick={onClick}>Node.js</Dropdown.Item>
+                            <Dropdown.Item value="HTML" onClick={onClick}>HTML</Dropdown.Item>
+                            <Dropdown.Item value="CSS" onClick={onClick}>CSS</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     </div>

@@ -76,6 +76,10 @@ function SnipitsSearchSidebar(props) {
             <Button className={"filterOptionsBtn"} onClick={handleClick} value="CSS">CSS</Button>
             <Button className={"filterOptionsBtn"} onClick={handleClick} value="JSX">JSX</Button>
             <Button className={"filterOptionsBtn"} onClick={handleClick} value="Python">Python</Button>
+            <Button className={"filterOptionsBtn"} onClick={handleClick} value="React">React</Button>
+            <Button className={"filterOptionsBtn"} onClick={handleClick} value="Node.js">Node.js</Button>
+
+
           </ButtonGroup>
           </Card>
           </Col>
