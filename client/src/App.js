@@ -45,7 +45,7 @@ function App() {
     console.log("logout");
     userAPI
       .logoutUser()
-      .then(location.reload())
+      
 
   }
 
