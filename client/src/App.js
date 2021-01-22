@@ -19,6 +19,12 @@ import Nav from "./components/Navbar";
 function App() {
   const [userState, setUserState] = useState({});
 
+  
+
+  const [logoutState , setlogoutState] = useState({
+    loginStatus : "logged in"
+  })
+
 
 
   function Redirect() {
@@ -45,6 +51,8 @@ function App() {
     console.log("logout");
     userAPI
       .logoutUser()
+      .then(console.log("logged u out"))
+
       
 
   }

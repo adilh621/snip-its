@@ -8,11 +8,13 @@ import { Link } from "react-router-dom";
 import userAPI from "../../utils/userAPI";
 
 
-function Nav({ userState, logout }) {
+function Nav({ userState, logout, logoutState}) {
   useLogRender();
   const user = userState;
   const history = useHistory();
 
+
+  console.log(logoutState)
   console.log(logout);
 
 
@@ -22,7 +24,9 @@ function Nav({ userState, logout }) {
       <Link to="/">
         <img src={logo} id="logo" />
       </Link>
-      <Button href="/login">Login</Button>
+      <Link to="/login">
+          <Button> Login </Button>
+        </Link>
       {userState.email ? (
         <Button onClick={()=>{logout()}}>Logout of {userState.username}</Button>
       ) : (
