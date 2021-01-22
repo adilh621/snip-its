@@ -4,6 +4,8 @@
 
 <img src="./ScreenShot.png">
 
+[Link To Deployed Application (Using Heroku)](https://snip-its.herokuapp.com/)
+
 ## Description
 This is a code sharing application. A user can either just view shared Snipits from other users. Or they can sign up and log in in order to share their own. When viewing all Snipits, a user can search through the titles of the Snipits or filter by the current catogories available.
 ## Table of Contents 
