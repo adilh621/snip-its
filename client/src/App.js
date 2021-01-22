@@ -11,13 +11,21 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
-import Head from "./components/Head";
+import Footer from "./components/Footer";
 import userAPI from "./utils/userAPI";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Nav from "./components/Navbar";
 
 function App() {
   const [userState, setUserState] = useState({});
+
+  
+
+  const [logoutState , setlogoutState] = useState({
+    loginStatus : "logged in"
+  })
+
+
 
   function Redirect() {
     window.location.href = "/snipits";
@@ -43,10 +51,11 @@ function App() {
     console.log("logout");
     userAPI
       .logoutUser()
-      .then((userState) => {
-        console.log(userState);
-        userState = {};
-      });
+      .then(console.log("logged u out"))
+      .then(location.reload())
+
+      
+
   }
 
   return (
@@ -84,6 +93,7 @@ function App() {
         </Switch>
       </Container>
       {/* {userState.email ? <Redirect to="/dashboard"/>: <></>} */}
+    <Footer />
     </Router>
   );
 }

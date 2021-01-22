@@ -8,37 +8,41 @@ import { Link } from "react-router-dom";
 import userAPI from "../../utils/userAPI";
 
 
-function Nav({ userState, logout }) {
+function Nav({ userState, logout, logoutState}) {
   useLogRender();
   const user = userState;
   const history = useHistory();
 
-  function logout() {
-    // console.log(user);
-    userAPI.logoutUser()
-    .then(location.reload())
-  }
 
-  console.log(logout);
+  // console.log(logoutState)
+  // console.log(history);
+  const path = history.location.pathname;
+
+
   return (
     //jsx
-    <Navbar bg="red">
+    <Navbar bg="red" className={"snipitsNav justify-content-between"}>
       <Link to="/">
         <img src={logo} id="logo" />
       </Link>
-      <Button href="/login">Login</Button>
+      <Navbar.Collapse className="justify-content-end">
+      {userState.email || path === "/login" ? <></>:
+      <Link to="/login">
+          <Button variant="info" style={{float: "right"}}> Login </Button>
+        </Link>}
       {userState.email ? (
-        <Button onClick={logout}>Logout of {userState.username}</Button>
+        <Button onClick={()=>{logout()}} variant="info">Logout of {userState.username}</Button>
       ) : (
-        <div className="nonuser">No User logged in</div>
+        <></>
       )}
-      {userState.email ? (
+      </Navbar.Collapse>
+      {userState.email && path === "/" ? (
         // <a href="/dashboard">Dashboard</a>
         <Link to="/dashboard">
-          <Button> Dashboard </Button>
+          <Button variant="info"> Dashboard </Button>
         </Link>
       ) : (
-        <h3>Login to see your Dashboard!</h3>
+        <></>
       )}
     </Navbar>
   );
