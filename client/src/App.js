@@ -19,6 +19,8 @@ import Nav from "./components/Navbar";
 function App() {
   const [userState, setUserState] = useState({});
 
+
+
   function Redirect() {
     window.location.href = "/snipits";
   }
@@ -43,10 +45,8 @@ function App() {
     console.log("logout");
     userAPI
       .logoutUser()
-      .then((userState) => {
-        console.log(userState);
-        userState = {};
-      });
+      .then(location.reload())
+
   }
 
   return (

@@ -13,13 +13,9 @@ function Nav({ userState, logout }) {
   const user = userState;
   const history = useHistory();
 
-  function logout() {
-    // console.log(user);
-    userAPI.logoutUser()
-    .then(location.reload())
-  }
-
   console.log(logout);
+
+
   return (
     //jsx
     <Navbar bg="red">
@@ -28,7 +24,7 @@ function Nav({ userState, logout }) {
       </Link>
       <Button href="/login">Login</Button>
       {userState.email ? (
-        <Button onClick={logout}>Logout of {userState.username}</Button>
+        <Button onClick={()=>{logout()}}>Logout of {userState.username}</Button>
       ) : (
         <div className="nonuser">No User logged in</div>
       )}
