@@ -1,9 +1,11 @@
-# Snipits
+# Snipits Code Sharing App
 
 ![GitHub](https://img.shields.io/github/downloads/adilh621/snip-its/total) ![GitHub](https://img.shields.io/github/languages/top/adilh621/snip-its) ![GitHub](https://img.shields.io/badge/license-MIT-green?style=flat) 
 
+<img src="./ScreenShot.png">
+
 ## Description
-This is a code sharing application. A user can either just view shared Snipits from other users. Or they can sign up and log in in order to share their own.
+This is a code sharing application. A user can either just view shared Snipits from other users. Or they can sign up and log in in order to share their own. When viewing all Snipits, a user can search through the titles of the Snipits or filter by the current catogories available.
 ## Table of Contents 
   - [Installation](#installation)
   - [Usage](#usage)
