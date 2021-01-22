@@ -52,6 +52,7 @@ function App() {
     userAPI
       .logoutUser()
       .then(console.log("logged u out"))
+      .then(location.reload())
 
       
 
