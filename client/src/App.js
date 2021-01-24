@@ -19,17 +19,6 @@ import Nav from "./components/Navbar";
 function App() {
   const [userState, setUserState] = useState({});
 
-  
-
-  const [logoutState , setlogoutState] = useState({
-    loginStatus : "logged in"
-  })
-
-
-
-  function Redirect() {
-    window.location.href = "/snipits";
-  }
 
   useEffect(() => {
     // auth user on first render
@@ -51,16 +40,12 @@ function App() {
     console.log("logout");
     userAPI
       .logoutUser()
-      .then(console.log("logged u out"))
       .then(location.reload())
-
-      
 
   }
 
   return (
     <Router>
-      {/* <Head /> */}
       <Nav userState={userState} logout={logout} />
       <Container fluid>
         <Switch>
@@ -92,7 +77,6 @@ function App() {
           <Route component={NoMatch} />
         </Switch>
       </Container>
-      {/* {userState.email ? <Redirect to="/dashboard"/>: <></>} */}
     <Footer />
     </Router>
   );
