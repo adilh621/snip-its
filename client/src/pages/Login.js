@@ -1,7 +1,7 @@
 import React, { Component, useHistory } from "react";
 import userAPI from "../utils/userAPI";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+import { Container, Row, Col } from "react-bootstrap";
 import { Input, FormBtn } from "../components/createSnipit";
 import "./Login.css"
 
@@ -46,7 +46,7 @@ class Login extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="12">
+          <Col lg={12}>
             <form>
               <Input
                 value={this.state.email}

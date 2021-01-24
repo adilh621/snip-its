@@ -4,8 +4,7 @@ import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import Card from "react-bootstrap/Card"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
+import { Container, Row, Col } from "react-bootstrap";
 import "./style.css"
 
 class Snipitview extends React.Component {

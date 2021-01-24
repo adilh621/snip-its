@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import userAPI from "../utils/userAPI";
 import {  Redirect, Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+import { Container, Row, Col } from "react-bootstrap";
 import { Input, FormBtn } from "../components/createSnipit";
 
 class Signup extends Component {
@@ -48,7 +48,7 @@ class Signup extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="12">
+          <Col lg={12}>
             <form>
             <Input
                 value={this.state.name}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory, Link } from "react-router-dom";
 import API from "../../utils/API";
-import { Col, Row } from "../Grid";
+import { Container, Row, Col } from "react-bootstrap";
 import { ForwardRefInput, FormBtn } from "../createSnipit";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
