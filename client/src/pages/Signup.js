@@ -14,8 +14,6 @@ class Signup extends Component {
     passwordConf: ""
   };
 
-  componentDidMount() {
-  }
   
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -51,7 +49,6 @@ class Signup extends Component {
       <Container fluid>
         <Row>
           <Col size="12">
- 
             <form>
             <Input
                 value={this.state.name}

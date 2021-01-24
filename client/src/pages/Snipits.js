@@ -88,7 +88,6 @@ function Snipits({ username }) {
                     {snipits.length ? (
                       <Row>
                         {snipits.map((snipit) => {
-                          console.log(snipit);
                           const id = snipit._id;
                           const title = snipit.title;
                           const body = snipit.body;

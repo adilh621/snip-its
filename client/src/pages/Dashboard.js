@@ -5,19 +5,16 @@ import InfoCard from "../components/InfoCard";
 import API from "../utils/API";
 import YourSnipitsCard from "../components/DashboardSnipitsCard";
 import SnipitInputCard from "../components/SnipitInputCard"
-// import { Switch } from "react-router-dom";
+
 
 
 function Dashboard(props) {
 
 	const user = props.username;
-	// console.log(props);
+	
 
 	const [snipits, setSnipits] = useState([]);
 	
-
-
-
 	useEffect(() => {
 	
 		loadSnipits();
@@ -25,17 +22,17 @@ function Dashboard(props) {
 	}, []);
 
 	function loadSnipits() {
-		console.log("Here!")
-		// console.log(API.getSnipits)
+		
+		
 		API.getSnipits()
 			.then((res) => {
-				// console.log(res)
+				
 				setSnipits(res.data);
 			})
 			.catch((err) => console.log(err));
 	}
 
-	// Deletes a snipit from the database with a given id, then reloads comments from the db
+	// Deletes a snipit from the database with a given id, then reloads snipits from the db
 	function deleteSnipit(id) {
 		API.deleteSnipit(id)
 			.then((res) => loadSnipits())
@@ -46,7 +43,7 @@ function Dashboard(props) {
 		return obj.username === user;
 	});
 
-	// console.log(filteredSnipits);
+	
 
 	return (<Container fluid>
 		<Row>
@@ -58,11 +55,11 @@ function Dashboard(props) {
 			<Col size="md-9">
 			<Switch>
 				<Route exact path={"/dashboard"}>
-			<YourSnipitsCard filteredSnipits={filteredSnipits} snipits={snipits} deleteSnipit={deleteSnipit} user={user} setSnipits={setSnipits} />
-			</Route>
-			<Route exact path={"/dashboard/create"}>
-                        <SnipitInputCard user={user} setSnipits={setSnipits} />
-                    </Route>
+					<YourSnipitsCard filteredSnipits={filteredSnipits} snipits={snipits} deleteSnipit={deleteSnipit} user={user} setSnipits={setSnipits} />
+				</Route>
+				<Route exact path={"/dashboard/create"}>
+            		<SnipitInputCard user={user} setSnipits={setSnipits} />
+            	</Route>
 			</Switch>
 			</Col>
 		</Row>

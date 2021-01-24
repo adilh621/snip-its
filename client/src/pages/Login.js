@@ -5,19 +5,18 @@ import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/createSnipit";
 import "./Login.css"
 
-
+ 
 class Login extends Component {
+
+  // the user state
+
   state = {
       email: "",
       password: ""
     };
-    
-    
-  componentDidMount() {
- 
-  }
   
-  
+  // setting the state for the user logging in
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
