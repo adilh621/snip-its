@@ -102,7 +102,7 @@ function SnipitInputCard(props) {
                 <br />
                     <div style={{alignContent: "center"}}>
                     <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        <Dropdown.Toggle variant="info" id="dropdown-basic">
                             {category}
                     </Dropdown.Toggle>
 
