@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import userAPI from "../utils/userAPI";
 import {  Redirect, Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+import { Container, Row, Col } from "react-bootstrap";
 import { Input, FormBtn } from "../components/createSnipit";
 
 class Signup extends Component {
@@ -48,25 +48,28 @@ class Signup extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="12">
-            <form>
+          <Col lg={12}>
+            <form style={{marginTop: "20px"}}>
             <Input
                 value={this.state.name}
                 onChange={this.handleInputChange}
                 name="name"
                 placeholder="Name"
+                style={{width: "500px", margin: "auto"}}
               />
               <Input
                 value={this.state.username}
                 onChange={this.handleInputChange}
                 name="username"
                 placeholder="username (required)"
+                style={{width: "500px", margin: "auto"}}
               />
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 name="email"
                 placeholder="email (required)"
+                style={{width: "500px", margin: "auto"}}
               />
               <Input
                 value={this.state.password}
@@ -74,6 +77,7 @@ class Signup extends Component {
                 name="password"
                 placeholder="(Password)"
                 type="password"
+                style={{width: "500px", margin: "auto"}}
               />
               <Input
                 value={this.state.passwordConf}
@@ -81,6 +85,7 @@ class Signup extends Component {
                 name="passwordConf"
                 placeholder="(Confirm Password)"
                 type="password"
+                style={{width: "500px", margin: "auto"}}
               />
               
               <FormBtn

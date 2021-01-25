@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import API from "../utils/API";
 import SnipitView from "../components/Snipit";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import { Table, Tr, Td } from "../components/Table";
+import { Container, Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import SnipitSearchSidebar from "../components/SnipitsSearchSidebar";
 
@@ -57,14 +55,14 @@ function Snipits({ username }) {
   return (
       <Container fluid>
         <Row>
-          <Col size="md-3">
+          <Col lg={3}>
             <SnipitSearchSidebar
               setFilter={setFilter}
               setSearch={setSearch}
               search={search}
             />
           </Col>
-          <Col size="md-9">
+          <Col lg={9}>
             <Card id="snipitsPageSnipitsCard">
               <Card.Header>
                 <div id={"mainpageLogo"}>
@@ -76,15 +74,15 @@ function Snipits({ username }) {
               </Card.Header>
               <Card.Body>
                 <Row>
-                  <Col size={"2"}>
+                  <Col lg={2}>
                       <p className={"filter"}>Filtered Snipits By:</p>
                   </Col>
-                  <Col size={"3"}>
+                  <Col lg={3}>
                       <p className={"filter"}> {filter} </p>
                   </Col>
                 </Row>
                 <Row>
-                  <Col size="md-12">
+                  <Col lg={12}>
                     {snipits.length ? (
                       <Row>
                         {snipits.map((snipit) => {

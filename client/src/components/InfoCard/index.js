@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ReactRoundedImage from "react-rounded-image";
 import DefaultProfileImg from "./Default_Profile_Img.jpg"
-// import { Col, Row, Container } from "../";
 import "./style.css"
 
 

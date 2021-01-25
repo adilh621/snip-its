@@ -6,15 +6,15 @@
 #sideBarTitle {
     background-color: aqua;
     color: black!important;
-    margin-left: 10px;
-    width: 280px;
     margin-top: 15px;
     border: 2px solid white;
 }
 
 #searchBox {
-    margin: auto;
-
+    /* margin: auto; */
+    margin-left: -10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 #searchTitleTxtBox {
@@ -28,12 +28,6 @@
    font-family: 'Source Code Pro', monospace;
    font-size: xx-large;
    margin: auto;
-}
-
-#searchAreaInputAndBtn {
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
 }
 
 .filterOptionsBtn {

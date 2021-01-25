@@ -3,10 +3,9 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
 } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 import Snipits from "./pages/Snipits";
-import { Container } from "./components/Grid";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -46,38 +45,50 @@ function App() {
 
   return (
     <Router>
-      <Nav userState={userState} logout={logout} />
-      <Container fluid>
-        <Switch>
-          <Route exact path="/" render={(props) => <Snipits />} />
-          <Route
-            exact
-            path="/login"
-            render={(props) => (
-              <Login
-                {...props}
-                userState={userState}
-                setUserState={setUserState}
+    <Container fluid>
+      <Row>
+        <Col lg={12}>
+          <Nav userState={userState} logout={logout} />
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={12}>
+            <Switch>
+              <Route exact path="/" render={(props) => <Snipits />} />
+              <Route
+                exact
+                path="/login"
+                render={(props) => (
+                  <Login
+                    {...props}
+                    userState={userState}
+                    setUserState={setUserState}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            exact
-            path="/signup"
-            render={(props) => (
-              <Signup {...props} authenticate={authenticate} user={userState} />
-            )}
-          />
-          {/* { userState.email ? <ProtectedRoute exact path={["/", "/snipits"]} type="public">
+              <Route
+                exact
+                path="/signup"
+                render={(props) => (
+                  <Signup {...props} authenticate={authenticate} user={userState} />
+                )}
+              />
+              {/* { userState.email ? <ProtectedRoute exact path={["/", "/snipits"]} type="public">
                   <Snipits {...userState} />
                </ProtectedRoute>:<Route exact path={"/"}><Snipits {...userState} /></Route>} */}
-          <ProtectedRoute path={["/", "/dashboard"]} type="private">
-            <Dashboard {...userState} />
-          </ProtectedRoute>
-          <Route component={NoMatch} />
-        </Switch>
-      </Container>
-    <Footer />
+              <ProtectedRoute path={["/", "/dashboard"]} type="private">
+                <Dashboard {...userState} />
+              </ProtectedRoute>
+              <Route component={NoMatch} />
+            </Switch>
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={12}>
+          <Footer />
+        </Col>
+      </Row>
+    </Container>
     </Router>
   );
 }

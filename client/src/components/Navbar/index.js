@@ -5,7 +5,6 @@ import { Navbar, Button } from "react-bootstrap";
 import "./style.css";
 import logo from "./Snip.png";
 import { Link } from "react-router-dom";
-import userAPI from "../../utils/userAPI";
 
 
 function Nav({ userState, logout, logoutState}) {
@@ -13,9 +12,6 @@ function Nav({ userState, logout, logoutState}) {
   const user = userState;
   const history = useHistory();
 
-
-  // console.log(logoutState)
-  // console.log(history);
   const path = history.location.pathname;
 
 
@@ -26,7 +22,7 @@ function Nav({ userState, logout, logoutState}) {
         <img src={logo} id="logo" />
       </Link>
       <Navbar.Collapse className="justify-content-end">
-      {userState.email || path === "/login" ? <></>:
+      {userState.email || path === "/login" || path === "/signup" ? <></>:
       <Link to="/login">
           <Button variant="info" style={{float: "right"}}> Login </Button>
         </Link>}

@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
+import { Container, Row, Col } from "react-bootstrap";
 import InfoCard from "../components/InfoCard";
 import API from "../utils/API";
 import YourSnipitsCard from "../components/DashboardSnipitsCard";
@@ -47,12 +47,12 @@ function Dashboard(props) {
 
 	return (<Container fluid>
 		<Row>
-			<Col size="md-3">
+			<Col lg={3}>
 				<div>
 				<InfoCard userinfo={props} filteredSnipits={filteredSnipits}/>
 				</div>
 			</Col>
-			<Col size="md-9">
+			<Col lg={9}>
 			<Switch>
 				<Route exact path={"/dashboard"}>
 					<YourSnipitsCard filteredSnipits={filteredSnipits} snipits={snipits} deleteSnipit={deleteSnipit} user={user} setSnipits={setSnipits} />
