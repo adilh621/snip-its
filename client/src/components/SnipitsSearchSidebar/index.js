@@ -61,7 +61,7 @@ function SnipitsSearchSidebar(props) {
       <Container fluid>
       <Row>
         <Col lg={12}>
-          <h2 className={"fontStyle"}>Categories:</h2>
+          <h2 className={"fontStyle"}>Categories</h2>
         </Col>
         <Col lg={12}>
           <Card>

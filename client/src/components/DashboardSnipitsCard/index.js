@@ -51,7 +51,7 @@ function YourSnipitsCard(props) {
                             console.log(id);
                             return (<Col lg={4}>
                                 <SnipitView key={id} title={title} body={body} username={username} category={category} />
-                                <Button id="deleteSnipitBtn" onClick={() => deleteSnipit(id)}>Delete Snipit</Button>
+                                <Button id="deleteSnipitBtn" variant="outline-info" onClick={() => deleteSnipit(id)}>Delete Snipit</Button>
                             </Col>
                             )
                         }
