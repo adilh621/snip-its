@@ -22,7 +22,7 @@ function Nav({ userState, logout, logoutState}) {
         <img src={logo} id="logo" />
       </Link>
       <Navbar.Collapse className="justify-content-end">
-      {userState.email || path === "/login" ? <></>:
+      {userState.email || path === "/login" || path === "/signup" ? <></>:
       <Link to="/login">
           <Button variant="info" style={{float: "right"}}> Login </Button>
         </Link>}

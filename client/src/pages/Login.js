@@ -3,7 +3,6 @@ import userAPI from "../utils/userAPI";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { Input, FormBtn } from "../components/createSnipit";
-import "./Login.css"
 
  
 class Login extends Component {
@@ -47,20 +46,20 @@ class Login extends Component {
       <Container fluid>
         <Row>
           <Col lg={12}>
-            <form>
+            <form style={{marginTop: "20px"}}>
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 name="email"
                 placeholder="Email (required)"
-                style={{textAlign: 'center'}}
+                style={{textAlign: 'center', width: "500px", margin: "auto"}}
               />
               <Input
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
                 placeholder="Password (required)"
-                style={{textAlign: 'center'}}
+                style={{textAlign: 'center', width: "500px", margin: "auto"}}
                 type="password"
               />
               
