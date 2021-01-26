@@ -16,45 +16,46 @@ class Snipitview extends React.Component {
         const category = this.props.category;
 
         // console.log(title);
-        return (<Card className={"snipitCard"} style={{ border: "solid 3px black" }}>
-            <Row>
-                <Col size={"12"}>
-                    <div id={"titleBox"}>
-                    <h1 id="snipitTitleTxt">{title}</h1>
-                    </div>
-                </Col>
-            </Row>
-            <Row>
-                <Col size={"12"}>
-                    <Editor
-                        value={body}
-                        highlight={body => highlight(body, languages.js)}
-                        padding={10}
-                        style={{ fontFamily: '"Fira code", "Fira Mono", monospace', fontSize: 12, height: "275px", overflow: "scroll", backgroundColor: "darkgray" }}
-                    />
-                </Col>
-            </Row>
-            <Row>
-                <Col size={"12"}>
-                    <div id={"snipitInfoTxtBox"}>
-                        <Row>
-                            <Col size={"md-6"}>
-                                <h2 className={"snipitInfoTxt"}>Created By User:</h2>
-                            </Col>
-                            <Col size={"md-6"}>
-                                <h2 className={"snipitInfoTxt"}> {username}</h2>
-                            </Col>
-                            <Col size={"md-6"}>
-                                <h2 className={"snipitInfoTxt"}>Category:</h2>
-                            </Col>
-                            <Col size={"md-6"}>
-                                <h2 className={"snipitInfoTxt"}>{category}</h2>
-                            </Col>
-                        </Row>
-                    </div>
-                </Col>
-            </Row>
-        </Card>)
+        return (
+            <Card className={"snipitCard"} style={{ border: "solid 3px black", backgroundColor: "black" }}>
+                <div id={"titleBox"}>
+                    <Row>
+                        <Col size={"12"}>
+                            <h1 id="snipitTitleTxt">{title}</h1>
+                        </Col>
+                    </Row>
+                </div>
+                <Row>
+                    <Col size={"12"}>
+                        <Editor
+                            value={body}
+                            highlight={body => highlight(body, languages.js)}
+                            padding={10}
+                            style={{ fontFamily: '"Fira code", "Fira Mono", monospace', fontSize: 12, height: "275px", backgroundColor: "darkgray" }}
+                        />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size={"12"}>
+                        <div id={"snipitInfoTxtBox"}>
+                            <Row>
+                                <Col size={"md-6"}>
+                                    <h2 className={"snipitInfoTxt"}>Created By User:</h2>
+                                </Col>
+                                <Col size={"md-6"}>
+                                    <h2 className={"snipitInfoTxt"}> {username}</h2>
+                                </Col>
+                                <Col size={"md-6"}>
+                                    <h2 className={"snipitInfoTxt"}>Category:</h2>
+                                </Col>
+                                <Col size={"md-6"}>
+                                    <h2 className={"snipitInfoTxt"}>{category}</h2>
+                                </Col>
+                            </Row>
+                        </div>
+                    </Col>
+                </Row>
+            </Card>)
     }
 }
 

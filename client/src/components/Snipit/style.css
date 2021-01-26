@@ -14,6 +14,8 @@
 #snipitTitleTxt {
     margin-top: 5px;
     font-weight: bolder;
+    align-self: center;
+    background-color: #8940de;
 }
 
 .snipitCard {
@@ -29,13 +31,16 @@
 #titleBox {
     border-bottom: solid black 2px;
     height: 50px;
-    margin-top: 20px;
+    width: 100%;
     margin: auto;
-    overflow: scroll;
+    overflow: hidden;
+    text-overflow: ellipsis;
     background-color: #8940de;
 }
 
 #snipitInfoTxtBox {
+    overflow: hidden;
+    text-overflow: ellipsis; 
     margin: auto;
     height: 70px ;
     background-color: aqua;
