@@ -69,7 +69,8 @@ function SnipitInputCard(props) {
     // Then reload comments from the database
     function handleFormSubmit(event) {
         event.preventDefault();
-        if (code) {
+        const titleLength = formObject.title.length;
+        if (code && titleLength > 1 && titleLength < 51 && category) {
             console.log(code.toString());
             API.saveSnipit({
                 body: code,
