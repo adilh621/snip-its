@@ -5,11 +5,15 @@
 }
 
 #yourSnipitsTitle {
-    margin-left: -600px;
     font-weight: bolder;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
 }
 
 #createSnipitBtn {
-    margin-top: 3px;
+    margin-top: 15px;
     margin-left: 100px;
+    margin-bottom: 15px;
 }

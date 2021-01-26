@@ -19,12 +19,10 @@ function YourSnipitsCard(props) {
     return (
         <Container fluid>
     <Card id="yourSnipitsCard" style={{backgroundColor: "darkslateblue", border: "solid black 2px"}}>
-        <Card.Header style={{backgroundColor: "darkslateblue", borderBottom: "solid black 2px"}}>
+        <div style={{borderBottom: "solid black 3px"}}>
             <Row>
                 <Col lg={9}>
-                    <div>
-                    <h1 id="yourSnipitsTitle" className={"fontStyle"} style={{paddingLeft: "50px", marginTop: "15px"}}>Your Snipits!</h1>
-                    </div>
+                    <h1 id="yourSnipitsTitle" className={"fontStyle"}>Your Snipits!</h1>
                 </Col>
                 <Col lg={3}>
                     <Button variant="info" id="createSnipitBtn">
@@ -37,8 +35,7 @@ function YourSnipitsCard(props) {
                     
                 </Col>
             </Row>
-        </Card.Header>
-        <Card.Body>
+            </div>
             {snipits.length ? (
                     <Row>
                         {filteredSnipits.map(snipit => {
@@ -60,7 +57,6 @@ function YourSnipitsCard(props) {
             ) : (
                     <h3 className={"fontStyle"}>You Don't Have Any Snipits Created. Click The Create Snipit Btn To Share Your Snipit! </h3>
                 )}
-        </Card.Body>
     </Card>
     </Container>);
 };
