@@ -43,14 +43,13 @@ function SnipitsSearchSidebar(props) {
     <Card.Body>
       <Form inline onSubmit={handleSubmit} id={"searchBox"}>
         <Form.Row>
-          <Col sm={8}>
+          <Col sm={9}>
             <FormControl
               type="text"
               value={searchValue}
               onChange={event => setSearchValue(event.target.value)}
               placeholder="Search By Title"
               className="mr-sm-2"
-              style={{ width: "150px" }}
             />
           </Col>
           <Col sm={3}>

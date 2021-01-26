@@ -23,7 +23,7 @@ function YourSnipitsCard(props) {
             <Row>
                 <Col lg={9}>
                     <div>
-                    <h1 id="yourSnipitsTitle" className={"fontStyle"} style={{marginLeft: "-400px", marginTop: "15px"}}>Your Snipits!</h1>
+                    <h1 id="yourSnipitsTitle" className={"fontStyle"} style={{paddingLeft: "50px", marginTop: "15px"}}>Your Snipits!</h1>
                     </div>
                 </Col>
                 <Col lg={3}>
