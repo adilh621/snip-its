@@ -49,7 +49,7 @@ function SnipitsSearchSidebar(props) {
               value={searchValue}
               onChange={event => setSearchValue(event.target.value)}
               placeholder="Search By Title"
-              className="mr-sm-2"
+              className="mr-lg-2"
             />
           </Col>
           <Col lg={3}>
