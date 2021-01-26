@@ -43,7 +43,7 @@ function SnipitsSearchSidebar(props) {
     <Card.Body>
       <Form inline onSubmit={handleSubmit} id={"searchBox"}>
         <Form.Row>
-          <Col sm={9}>
+          <Col lg={9}>
             <FormControl
               type="text"
               value={searchValue}
@@ -52,7 +52,7 @@ function SnipitsSearchSidebar(props) {
               className="mr-sm-2"
             />
           </Col>
-          <Col sm={3}>
+          <Col lg={3}>
             <Button id="searchBtn" className="fontStyle" variant="outline-info" type="submit">Search</Button>
           </Col>
         </Form.Row>
