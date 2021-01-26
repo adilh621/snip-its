@@ -32,7 +32,7 @@
 
 .filterOptionsBtn {
 background-color: aqua !important;
-color: black;
+color: black !important;
 font-size: medium;
 font-weight: bold;
 font-family: 'Source Code Pro', monospace;
