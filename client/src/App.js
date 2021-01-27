@@ -46,11 +46,9 @@ function App() {
   return (
     <Router>
     <Container fluid>
-      <Row>
-        <Col lg={12}>
+
           <Nav userState={userState} logout={logout} />
-        </Col>
-      </Row>
+
       <Row>
         <Col lg={12}>
             <Switch>
@@ -83,11 +81,9 @@ function App() {
             </Switch>
         </Col>
       </Row>
-      <Row>
-        <Col lg={12}>
-          <Footer />
-        </Col>
-      </Row>
+
+          <Footer/>
+
     </Container>
     </Router>
   );
