@@ -42,8 +42,8 @@ function SnipitsSearchSidebar(props) {
     </Card.Header>
     <Card.Body>
       <Form inline onSubmit={handleSubmit} id={"searchBox"}>
-        <Form.Row>
-          <Col lg={9}>
+        <Form.Row style={{margin:"auto"}}>
+          <Col lg={"auto"}>
             <FormControl
               type="text"
               value={searchValue}
@@ -52,7 +52,7 @@ function SnipitsSearchSidebar(props) {
               className="mr-lg-2"
             />
           </Col>
-          <Col lg={3}>
+          <Col lg={"auto"}>
             <Button id="searchBtn" className="fontStyle" variant="outline-info" type="submit">Search</Button>
           </Col>
         </Form.Row>

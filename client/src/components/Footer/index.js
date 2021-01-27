@@ -8,7 +8,7 @@ function Footer() {
 
   return (
     //jsx
-    <footer>
+    <footer className = "footerctn">
       <div id={"footerBox"}>
       <p id={"footerTxt"}>© Snipits 2021</p>
       </div>
