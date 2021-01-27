@@ -27,9 +27,20 @@ function Snipits({ username }) {
   }
 
   function searchByTitle(data) {
+
+
+    const searchArr = search.split(" ");
     setSnipits(
       data.filter(function (obj) {
-        return obj.title.toLowerCase() === search.toLowerCase();
+
+       const titleSearch = obj.title.split(" ")
+       console.log(titleSearch)
+
+       const match = titleSearch.filter(element => searchArr.includes(element));
+       console.log(match);
+
+       return match.length > 0
+
       })
     );
   }
