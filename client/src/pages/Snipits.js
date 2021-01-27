@@ -29,11 +29,11 @@ function Snipits({ username }) {
   function searchByTitle(data) {
 
 
-    const searchArr = search.split(" ");
+    const searchArr = search.toLowerCase().split(" ");
     setSnipits(
       data.filter(function (obj) {
 
-       const titleSearch = obj.title.split(" ")
+       const titleSearch = obj.title.toLowerCase().split(" ")
        console.log(titleSearch)
 
        const match = titleSearch.filter(element => searchArr.includes(element));
