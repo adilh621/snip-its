@@ -6,7 +6,6 @@
 
 [Link To Deployed Application (Using Heroku)](https://snip-its.herokuapp.com/)
 
-[Link To Deployed Application (Using Heroku)](https://snip-its.herokuapp.com/)
 
 ## Description
 A code sharing application built with React.js. A user can either view shared Snipits from other users on the site. Or they have the option to  sign up and log in to share their own snipits. When viewing all Snipits, a user can search through the titles of the Snipits or filter by the current catogories available.
