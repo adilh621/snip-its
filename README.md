@@ -48,8 +48,16 @@ N/A
 │   └── src                <- # font end source (can also place static files to be packed with webpack)
 │       ├── App.js         <- # 🚀 react app entry point 
 │       ├── components     <- # reusable components
+│       │   ├── SnipitsSearchBar
+│       │   ├── Snipit
+│       │   ├── Navbar
+│       │   ├── InfoCard
+│       │   ├── Footer
+│       │   ├── DashboardSnipetCard
+│       │   ├── CreateSnipit
+│       │   ├── codeInputBox
 │       │   ├── Card
-│       │   ├── DeleteBtn
+│       │   ├── SnipitInputCard
 │       │   ├── Form
 │       │   ├── Grid
 │       │   ├── Head
