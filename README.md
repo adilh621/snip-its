@@ -36,7 +36,7 @@ N/A
 ```
 
 ## Folder Structure
-.
+```
 ├── _assets                <- # project management assets
 ├── client                 <- # front end react app                        
 │   ├── README.md          <- # create react app readme
@@ -83,7 +83,7 @@ N/A
 ├── package.json
 ├── readme.md
 └── server.js                 <- # 🚀 entry point
-
+```
 ## Questions
 If you have any questions about the repo, open an issue or contact me directly at adilh621@gmail.com. You can find more of my work on [GitHub](https://github.com/adilh621).
 ## License
