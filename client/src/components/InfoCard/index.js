@@ -7,14 +7,28 @@ import "./style.css"
 
 
 function InfoCard(props) {
-    console.table(props)
+    // console.table(props)
     const name = props.userinfo.name;
     const userName = props.userinfo.username;
     const email= props.userinfo.email;
-    const snipitHistory = props.userinfo.snipits;
-    const snipitHistoryNum = snipitHistory.length;
-    const snipitsArray = props.filteredSnipits;
-    const snipitNum = snipitsArray.length;
+
+    var snipitHistoryNum;
+
+    var snipitNum;
+    
+    console.log(props)
+    if(props.filteredSnipits.length === 0){
+    
+        snipitHistoryNum = 0;
+        snipitNum = 0;
+
+    }else{
+        
+        console.log(props)
+        //  snipitHistoryNum = props.userinfo.snipit.length;
+        
+        //  snipitNum = props.filteredSnipits.length;
+    }
 
     return(<Card id="infoCard">
         <div id="profileImg">
@@ -28,8 +42,8 @@ function InfoCard(props) {
         <ListGroup variant="flush" >
             <ListGroup.Item style={{backgroundColor: "#8940de"}}><p className={"fontStyle"}>Username: {userName}</p></ListGroup.Item>
             <ListGroup.Item style={{backgroundColor: "#8940de"}}><p className={"fontStyle"}>Email: {email}</p></ListGroup.Item>
-            <ListGroup.Item style={{backgroundColor: "#8940de"}}><p className={"fontStyle"}>{snipitNum} Snipits Currently Being Shared!</p></ListGroup.Item>
-            <ListGroup.Item style={{backgroundColor: "#8940de"}}><p className={"fontStyle"}>Total Number of Snipits Created By This Account: {snipitHistoryNum}</p></ListGroup.Item>
+            <ListGroup.Item style={{backgroundColor: "#8940de"}}><p className={"fontStyle"}>{props.filteredSnipits.length } Snipits Currently Being Shared!</p></ListGroup.Item>
+            <ListGroup.Item style={{backgroundColor: "#8940de"}}><p className={"fontStyle"}>Total Number of Snipits Created By This Account: {}</p></ListGroup.Item>
         </ListGroup>
         </Card.Body>
     </Card>);

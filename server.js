@@ -8,15 +8,27 @@ const session = require("express-session");
 const passport = require("./utils/passport");
 const logger = require("morgan");
 
+const crypto = require('crypto')//to generate file name
+const multer = require('multer')
+const GridFsStorage = require('multer-gridfs-storage')
+const Grid = require('gridfs-stream')
+const path = require("path")
+
+const uploadMulter = require('./middleware/upload')
+
 
 const PORT = process.env.PORT || 3001;
 
 // logging (development)
 app.use(logger("dev"));
 
+app.use("/uploads" , express.static("uploads"))
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(uploadMulter);
 
 // Serve static assets from react build
 app.use(express.static("client/build"));
@@ -29,8 +41,10 @@ app.use(passport.session());
 // Add routes, both API and view
 app.use(routes);
 
+
 // Connect to the Mongo DB
 mongoose.connect(process.env.ATLAS_URL || "mongodb://localhost/snipits", mongoOptions);
+
 
 // Start the API server
 app.listen(PORT, function () {

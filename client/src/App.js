@@ -18,13 +18,14 @@ import Nav from "./components/Navbar";
 function App() {
   const [userState, setUserState] = useState({});
 
-
   useEffect(() => {
     // auth user on first render
     authenticate();
   }, []);
 
   //user authentication
+
+  console.log(userState)
 
   function authenticate() {
     return userAPI
