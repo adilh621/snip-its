@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component , setState , useState} from "react";
 
 import userAPI from "../utils/userAPI";
 import {  Redirect, Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { Input, FormBtn } from "../components/createSnipit";
+import {storage} from '../firebase/index'
 
 class Signup extends Component {
   state = {
@@ -11,20 +12,39 @@ class Signup extends Component {
     email: "",
     username: "",
     password: "",
-    passwordConf: ""
+    passwordConf: "",
+    userImage : ""
   };
+   
 
+     onUpload = e => {
+      if(e.target.files[0]){
+        this.setState({
+          userImage : e.target.files[0]
+        })
+      }
+      console.log(this)
   
+      
+    }
+
   handleInputChange = event => {
+
     const { name, value } = event.target;
+    
     this.setState({
-      [name]: value
+      [name]: value,
+      
+      
     });
   };
 
   handleFormSubmit = event => {
     const { history } = this.props;
     event.preventDefault();
+    console.log(event)
+    console.log(this.state)
+
     if (this.state.email && this.state.password) {
       userAPI.signup({
         username: this.state.username,
@@ -40,9 +60,32 @@ class Signup extends Component {
             history.push("/snipits");
           }
         })
-        .catch(err => console.log(err.response.data));
+        .catch(err => console.log(err));
     }
+
+    // const image = this.state.userImage
+    // const uploadTask = storage.ref(`images/${image.name}`).put(image);
+
+    // uploadTask.on(
+    //   "state_changed",
+    //   snapshot=> {},
+    //   error => {
+    //     console.log(error)
+    //   },
+    //   ()=>{
+    //     storage
+    //       .ref("images")
+    //       .child(image.name)
+    //       .getDownloadURL()
+    //       .then(url => {
+
+    //         console.log(url)
+    //       })
+    //   }
+    // )
   };
+
+
 
   render() {
     return (
@@ -87,7 +130,13 @@ class Signup extends Component {
                 type="password"
                 style={{width: "500px", margin: "auto"}}
               />
-              
+              {/* <Input
+
+                onChange={this.onUpload}
+ 
+                type="file"
+                style={{width: "500px", margin: "auto"}}
+              /> */}
               <FormBtn
                 // disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}

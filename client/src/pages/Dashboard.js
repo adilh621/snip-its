@@ -11,6 +11,8 @@ import SnipitInputCard from "../components/SnipitInputCard"
 function Dashboard(props) {
 
 	const user = props.username;
+
+	console.log(props)
 	
 
 	const [snipits, setSnipits] = useState([]);
